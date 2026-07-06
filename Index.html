@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NIRMATA — AgriTech Crisis Intel Briefing V2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--tx-xs:clamp(.72rem,.67rem + .25vw,.82rem);--tx-sm:clamp(.82rem,.77rem + .3vw,.95rem);--tx-base:clamp(.95rem,.9rem + .25vw,1.05rem);--tx-lg:clamp(1.1rem,1rem + .6vw,1.4rem);--tx-xl:clamp(1.3rem,1.1rem + 1vw,1.9rem);--tx-2xl:clamp(1.7rem,1.3rem + 2vw,2.9rem);--tx-3xl:clamp(2.2rem,1.2rem + 3.5vw,4.2rem);--tx-hero:clamp(2.8rem,.5rem + 6vw,6.4rem);--sp1:.25rem;--sp2:.5rem;--sp3:.75rem;--sp4:1rem;--sp5:1.25rem;--sp6:1.5rem;--sp8:2rem;--sp10:2.5rem;--sp12:3rem;--sp16:4rem;--sp20:5rem;--sp24:6rem;--r-sm:2px;--r-md:4px;--r-lg:6px;--r-xl:10px;--r-full:9999px;--fd:'Space Mono','Courier New',monospace;--fb:'Space Grotesk','Helvetica Neue',sans-serif;--ease:160ms cubic-bezier(.16,1,.3,1);--cw:1040px;--cww:1300px}
+[data-theme="dark"]{--bg:#060809;--s1:#0d1114;--s2:#121619;--s3:#171c1f;--s4:#1d2326;--bdr:rgba(255,255,255,.05);--bdrh:rgba(255,255,255,.11);--tx:#dde4e8;--txm:#6e8090;--txf:#2e3e48;--red:#ff3d3d;--redd:rgba(255,61,61,.14);--warn:#ff8c00;--warnd:rgba(255,140,0,.14);--ok:#00c896;--okd:rgba(0,200,150,.12);--tl:#00b4d8;--tld:rgba(0,180,216,.12);--gld:#ffd700;--gldd:rgba(255,215,0,.12);--pur:#a855f7;--purd:rgba(168,85,247,.12);--sh-m:0 4px 18px rgba(0,0,0,.55)}
+[data-theme="light"]{--bg:#f0f3f5;--s1:#ffffff;--s2:#f7f9fa;--s3:#eef1f3;--s4:#e5eaed;--bdr:rgba(0,0,0,.07);--bdrh:rgba(0,0,0,.15);--tx:#111820;--txm:#4a5e6c;--txf:#8faab8;--red:#b91c1c;--redd:rgba(185,28,28,.09);--warn:#c25a00;--warnd:rgba(194,90,0,.09);--ok:#0a7a5a;--okd:rgba(10,122,90,.09);--tl:#00607a;--tld:rgba(0,96,122,.09);--gld:#927200;--gldd:rgba(146,114,0,.09);--pur:#7c3aed;--purd:rgba(124,58,237,.09);--sh-m:0 4px 18px rgba(0,0,0,.11)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);font-size:var(--tx-base);color:var(--tx);background:var(--bg);line-height:1.65;min-height:100dvh;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--fd);line-height:1.15;text-wrap:balance}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--s4);border-radius:var(--r-full)}
+.pb{position:fixed;top:0;left:0;right:0;height:2px;z-index:200}.pf{height:100%;width:0%;background:linear-gradient(90deg,var(--red),var(--tl));transition:width .12s linear}
+.hdr{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(6,8,9,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--bdr)}
+[data-theme="light"] .hdr{background:rgba(240,243,245,.93)}
+.hi{max-width:var(--cww);margin:0 auto;padding:var(--sp3) var(--sp6);display:flex;align-items:center;justify-content:space-between;gap:var(--sp4)}
+.logo{display:flex;align-items:center;gap:var(--sp3);font-family:var(--fd);font-size:var(--tx-sm);font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.lt{width:26px;height:26px;background:var(--red);clip-path:polygon(50% 0%,100% 100%,0% 100%);flex-shrink:0}
+.ls{font-size:var(--tx-xs);color:var(--txm);font-weight:400;letter-spacing:.04em}
+.hr{display:flex;align-items:center;gap:var(--sp3)}
+.cb{font-family:var(--fd);font-size:var(--tx-xs);font-weight:700;letter-spacing:.14em;color:var(--red);border:1px solid var(--red);padding:3px var(--sp3);border-radius:var(--r-sm);animation:pb 2.5s ease-in-out infinite}
+@keyframes pb{0%,100%{border-color:var(--red);box-shadow:none}50%{box-shadow:0 0 8px rgba(255,61,61,.28)}}
+.tb{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:var(--r-md);border:1px solid var(--bdr);color:var(--txm);transition:all var(--ease)}
+.tb:hover{color:var(--tx);border-color:var(--bdrh);background:var(--s2)}
+.nav{display:flex;gap:0;list-style:none}
+.nv{font-family:var(--fd);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:var(--sp2) var(--sp3);border-radius:var(--r-sm);color:var(--txm);transition:all var(--ease);cursor:pointer;white-space:nowrap}
+.nv:hover,.nv.act{color:var(--tl);background:var(--tld)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:var(--sp24) var(--sp6) var(--sp16);position:relative;overflow:hidden}
+.hg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,61,61,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,61,61,.04) 1px,transparent 1px);background-size:54px 54px;mask-image:radial-gradient(ellipse 80% 55% at 50% 50%,black,transparent)}
+.o1{position:absolute;width:560px;height:560px;top:-180px;right:-80px;background:radial-gradient(circle,rgba(255,61,61,.07),transparent 70%);border-radius:50%;pointer-events:none}
+.o2{position:absolute;width:380px;height:380px;bottom:80px;left:-80px;background:radial-gradient(circle,rgba(0,180,216,.05),transparent 70%);border-radius:50%;pointer-events:none}
+.hc{position:relative;max-width:var(--cww);margin:0 auto;width:100%}
+.ey{display:flex;align-items:center;gap:var(--sp3);font-family:var(--fd);font-size:var(--tx-xs);letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:var(--sp6)}
+.el{width:36px;height:1px;background:var(--red)}
+.ht{font-size:var(--tx-hero);font-weight:700;letter-spacing:-.02em;line-height:.93;margin-bottom:var(--sp6)}
+.ht .a1{color:var(--red)}.ht .a2{color:var(--txm);font-weight:300}
+.hm-wrap{display:flex;flex-wrap:wrap;gap:var(--sp6);margin-bottom:var(--sp10)}
+.hmi{display:flex;flex-direction:column;gap:2px}
+.hml{font-family:var(--fd);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--txf)}
+.hmv{font-family:var(--fd);font-size:var(--tx-sm);font-weight:700;color:var(--txm)}
+.hmv.cr{color:var(--red)}.hmv.ct{color:var(--tl)}.hmv.cg{color:var(--ok)}
+.sng{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:var(--sp3);margin-top:var(--sp8)}
+.snc{background:var(--s1);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:var(--sp4);cursor:pointer;transition:all var(--ease);display:flex;flex-direction:column;gap:var(--sp2)}
+.snc:hover{border-color:var(--tl);background:var(--s2);transform:translateY(-2px);box-shadow:var(--sh-m)}
+.snc.new{border-color:rgba(0,200,150,.25)}.snc.new:hover{border-color:var(--ok)}
+.snn{font-family:var(--fd);font-size:10px;color:var(--txf);letter-spacing:.09em}
+.snt{font-family:var(--fd);font-size:var(--tx-sm);font-weight:700;color:var(--tx)}
+.sns{font-size:var(--tx-xs);color:var(--txm);line-height:1.5}
+.snb{display:inline-block;font-family:var(--fd);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:var(--r-sm);margin-top:auto;align-self:flex-start}
+.bnew{background:var(--okd);color:var(--ok);border:1px solid rgba(0,200,150,.3)}
+.bbase{background:var(--tld);color:var(--tl);border:1px solid rgba(0,180,216,.2)}
+main{padding-top:60px}
+.sec{padding:clamp(var(--sp16),8vw,var(--sp24)) var(--sp6);max-width:var(--cww);margin:0 auto}
+.sh{display:flex;align-items:flex-start;gap:var(--sp6);margin-bottom:clamp(var(--sp10),5vw,var(--sp16));padding-bottom:var(--sp8);border-bottom:1px solid var(--bdr)}
+.sn{font-family:var(--fd);font-size:var(--tx-3xl);font-weight:700;color:var(--txf);line-height:1;flex-shrink:0;min-width:2.8ch}
+.shc{flex:1}
+.stag{font-family:var(--fd);font-size:var(--tx-xs);letter-spacing:.18em;text-transform:uppercase;margin-bottom:var(--sp3);display:flex;align-items:center;gap:var(--sp2)}
+.td{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.stitle{font-size:var(--tx-2xl);font-weight:700;letter-spacing:-.01em;color:var(--tx);margin-bottom:var(--sp3)}
+.ssub{font-size:var(--tx-base);color:var(--txm);max-width:62ch}
+.nf{display:inline-flex;align-items:center;gap:var(--sp2);font-family:var(--fd);font-size:var(--tx-xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ok);background:var(--okd);border:1px solid rgba(0,200,150,.3);padding:var(--sp2) var(--sp4);border-radius:var(--r-full);margin-bottom:var(--sp4)}
+.nf::before{content:"▸";font-size:9px}
+.div{border:none;border-top:1px solid var(--bdr);max-width:var(--cww);margin:0 auto}
+.subh{font-family:var(--fd);font-size:var(--tx-lg);font-weight:700;letter-spacing:.04em;color:var(--tx);margin-top:var(--sp8);margin-bottom:var(--sp4)}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(360px,100%),1fr));gap:var(--sp4)}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:var(--sp4)}
+.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:var(--sp4)}
+.card{background:var(--s1);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:var(--sp6);transition:all var(--ease)}
+.card:hover{border-color:var(--bdrh);box-shadow:var(--sh-m)}
+.card.cr{border-color:rgba(255,61,61,.18);background:linear-gradient(135deg,var(--s1),rgba(255,61,61,.015))}
+.card.ct{border-color:rgba(0,180,216,.18)}.card.cg{border-color:rgba(0,200,150,.18)}.card.cgld{border-color:rgba(255,215,0,.18)}.card.cpur{border-color:rgba(168,85,247,.18)}.card.cwarn{border-color:rgba(255,140,0,.18)}
+.ci{width:38px;height:38px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:var(--sp4)}
+.cir{background:var(--redd)}.cib{background:var(--tld)}.cig{background:var(--okd)}.cigld{background:var(--gldd)}.cip{background:var(--purd)}.ciw{background:var(--warnd)}
+.ch{font-family:var(--fd);font-size:var(--tx-base);font-weight:700;margin-bottom:var(--sp3);letter-spacing:.03em}
+.cb2{font-size:var(--tx-sm);color:var(--txm);line-height:1.7}
+.cst{font-family:var(--fd);font-size:var(--tx-2xl);font-weight:700;margin-bottom:var(--sp2)}
+.str{color:var(--red)}.stb{color:var(--tl)}.stg{color:var(--ok)}.stgld{color:var(--gld)}
+.tw{overflow-x:auto;border:1px solid var(--bdr);border-radius:var(--r-lg)}
+.tbl{width:100%;border-collapse:collapse;font-size:var(--tx-sm)}
+.tbl th{font-family:var(--fd);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--txf);padding:var(--sp4) var(--sp5);text-align:left;background:var(--s2);border-bottom:1px solid var(--bdr)}
+.tbl td{padding:var(--sp4) var(--sp5);border-bottom:1px solid var(--bdr);color:var(--txm);vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}.tbl tr:hover td{background:var(--s2)}.tbl .hl{color:var(--tx);font-weight:600}
+.tr{color:var(--red);font-family:var(--fd);font-size:10px;font-weight:700}
+.tt{color:var(--tl);font-family:var(--fd);font-size:10px;font-weight:700}
+.to{color:var(--ok);font-family:var(--fd);font-size:10px;font-weight:700}
+.tg{color:var(--gld);font-family:var(--fd);font-size:10px;font-weight:700}
+.tp{color:var(--pur);font-family:var(--fd);font-size:10px;font-weight:700}
+.sbr{margin-bottom:var(--sp4)}
+.sbl{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--sp2);font-size:var(--tx-sm)}
+.sbt{height:5px;background:var(--s4);border-radius:var(--r-full);overflow:hidden}
+.sbf{height:100%;border-radius:var(--r-full);width:0%;transition:width 1.2s cubic-bezier(.16,1,.3,1)}
+.fr{background:linear-gradient(90deg,#ff3d3d,#ff6b6b)}.fb{background:linear-gradient(90deg,#00b4d8,#00d4f7)}.fg{background:linear-gradient(90deg,#00c896,#00e8ae)}.fgld{background:linear-gradient(90deg,#ffd700,#ffe53b)}.fw{background:linear-gradient(90deg,#ff8c00,#ffab40)}
+.co{border-radius:var(--r-lg);padding:var(--sp6);margin:var(--sp8) 0}
+.cor{background:var(--redd);border:1px solid rgba(255,61,61,.22)}.cot{background:var(--tld);border:1px solid rgba(0,180,216,.22)}.coo{background:var(--okd);border:1px solid rgba(0,200,150,.22)}.cog{background:var(--gldd);border:1px solid rgba(255,215,0,.22)}.cop{background:var(--purd);border:1px solid rgba(168,85,247,.22)}.cow{background:var(--warnd);border:1px solid rgba(255,140,0,.22)}
+.coh{font-family:var(--fd);font-size:var(--tx-sm);font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:var(--sp3);display:flex;align-items:center;gap:var(--sp2)}
+.cor .coh{color:var(--red)}.cot .coh{color:var(--tl)}.coo .coh{color:var(--ok)}.cog .coh{color:var(--gld)}.cop .coh{color:var(--pur)}.cow .coh{color:var(--warn)}
+.cob{color:var(--txm);font-size:var(--tx-base);line-height:1.7}.cob p+p{margin-top:var(--sp3)}
+.tl{display:flex;flex-direction:column;gap:var(--sp2);margin:var(--sp4) 0}
+.tr2{display:flex;align-items:center;gap:var(--sp3);padding:var(--sp3) var(--sp4);background:var(--s1);border:1px solid var(--bdr);border-radius:var(--r-md);transition:all var(--ease)}
+.tr2:hover{background:var(--s2);border-color:var(--bdrh)}
+.tf{font-size:16px;flex-shrink:0;width:26px;text-align:center}
+.tn{font-family:var(--fd);font-size:var(--tx-sm);font-weight:700;flex:1;color:var(--tx)}
+.tlv{font-family:var(--fd);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:var(--r-full)}
+.lvex{background:var(--redd);color:var(--red);border:1px solid rgba(255,61,61,.3)}.lvhi{background:var(--warnd);color:var(--warn);border:1px solid rgba(255,140,0,.3)}.lvmd{background:var(--gldd);color:var(--gld);border:1px solid rgba(255,215,0,.3)}.lvac{background:var(--purd);color:var(--pur);border:1px solid rgba(168,85,247,.3)}
+.eg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));gap:var(--sp3)}
+.en{background:var(--s1);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:var(--sp5);text-align:center;transition:all var(--ease);position:relative;overflow:hidden}
+.en::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,var(--nc,rgba(0,180,216,.07)),transparent 70%)}
+.en:hover{transform:translateY(-3px);box-shadow:var(--sh-m);border-color:var(--bdrh)}
+.ni{font-size:26px;margin-bottom:var(--sp3);position:relative}.nl{font-family:var(--fd);font-size:var(--tx-xs);font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--tx);position:relative}.ns{font-size:var(--tx-xs);color:var(--txm);margin-top:var(--sp2);line-height:1.5;position:relative}
+.ad{background:var(--s1);border:1px solid rgba(0,180,216,.2);border-radius:var(--r-xl);padding:var(--sp8);position:relative;overflow:hidden}
+.ad::before{content:"";position:absolute;top:0;right:0;width:260px;height:260px;background:radial-gradient(circle,rgba(0,180,216,.05),transparent 70%);pointer-events:none}
+.ls2{display:flex;flex-direction:column;gap:var(--sp3)}
+.li{display:flex;align-items:flex-start;gap:var(--sp4);padding:var(--sp4) var(--sp5);border-radius:var(--r-md);border:1px solid;transition:all var(--ease)}.li:hover{transform:translateX(4px)}
+.la{border-color:rgba(0,180,216,.4);background:linear-gradient(135deg,rgba(0,180,216,.09),transparent)}.le{border-color:rgba(255,215,0,.2);background:rgba(255,215,0,.015)}.ld{border-color:rgba(168,85,247,.2);background:rgba(168,85,247,.015)}
+.lb{font-family:var(--fd);font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:3px 8px;border-radius:var(--r-full);flex-shrink:0;white-space:nowrap}
+.lba{background:var(--tld);color:var(--tl);border:1px solid rgba(0,180,216,.3)}.lbe{background:var(--gldd);color:var(--gld);border:1px solid rgba(255,215,0,.3)}.lbd{background:var(--purd);color:var(--pur);border:1px solid rgba(168,85,247,.3)}
+.lc{flex:1}.lt2{font-family:var(--fd);font-size:var(--tx-sm);font-weight:700;color:var(--tx);margin-bottom:var(--sp1)}.ld2{font-size:var(--tx-xs);color:var(--txm);line-height:1.6}
+.lar{text-align:center;color:var(--txf);font-size:18px;padding:2px 0}
+.ph{border:1px solid var(--bdr);border-radius:var(--r-lg);overflow:hidden;margin-bottom:var(--sp3)}
+.phh{padding:var(--sp5) var(--sp6);display:flex;align-items:center;gap:var(--sp4);cursor:pointer;background:var(--s1);transition:background var(--ease);user-select:none}.phh:hover{background:var(--s2)}
+.ppb{font-family:var(--fd);font-size:10px;font-weight:700;letter-spacing:.09em;padding:3px 8px;border-radius:var(--r-full);flex-shrink:0;min-width:72px;text-align:center}
+.pp1{background:var(--redd);color:var(--red);border:1px solid rgba(255,61,61,.3)}.pp2{background:var(--warnd);color:var(--warn);border:1px solid rgba(255,140,0,.3)}.pp3{background:var(--gldd);color:var(--gld);border:1px solid rgba(255,215,0,.3)}.pp4{background:var(--okd);color:var(--ok);border:1px solid rgba(0,200,150,.3)}.pp5{background:var(--purd);color:var(--pur);border:1px solid rgba(168,85,247,.3)}
+.pht{font-family:var(--fd);font-size:var(--tx-base);font-weight:700;color:var(--tx);flex:1}
+.phc{color:var(--txf);transition:transform var(--ease);flex-shrink:0}
+.ph.open .phc{transform:rotate(180deg)}
+.phb{display:none;padding:var(--sp6);background:var(--s2);border-top:1px solid var(--bdr)}.ph.open .phb{display:block}
+.ql{list-style:none;display:flex;flex-direction:column;gap:var(--sp4)}
+.qi{display:flex;gap:var(--sp4);padding:var(--sp4);background:var(--s1);border-radius:var(--r-md);border:1px solid var(--bdr)}
+.qn{font-family:var(--fd);font-size:var(--tx-xs);font-weight:700;color:var(--txf);flex-shrink:0;padding-top:2px;min-width:2.4ch}
+.qc{flex:1}.qt{font-size:var(--tx-sm);font-weight:600;color:var(--tx);margin-bottom:var(--sp2)}.qr{font-size:var(--tx-xs);color:var(--txm);line-height:1.65}.qp{font-family:var(--fd);font-size:var(--tx-xs);color:var(--txf);letter-spacing:.07em;text-transform:uppercase;margin-top:var(--sp2);padding-top:var(--sp2);border-top:1px solid var(--bdr)}
+.ac{background:var(--s1);border:1px solid var(--bdr);border-radius:var(--r-xl);padding:var(--sp8);margin-bottom:var(--sp8);overflow:hidden}
+.al{display:flex;justify-content:space-between;padding:0 var(--sp2);margin-top:var(--sp4)}
+.alb{font-family:var(--fd);font-size:var(--tx-xs);color:var(--txf);letter-spacing:.05em;text-align:center;flex:1;line-height:1.4}
+.alb.cur{color:var(--tl);font-weight:700}
+.qb{border-left:3px solid var(--tl);padding:var(--sp4) var(--sp6);margin:var(--sp6) 0;background:var(--s2);border-radius:0 var(--r-lg) var(--r-lg) 0}
+.qb p{font-family:var(--fd);font-size:var(--tx-base);color:var(--tx);line-height:1.7;font-style:italic}
+.qb cite{display:block;font-family:var(--fd);font-size:var(--tx-xs);color:var(--txf);letter-spacing:.1em;text-transform:uppercase;margin-top:var(--sp3);font-style:normal}
+.ftr{border-top:1px solid var(--bdr);padding:var(--sp12) var(--sp6);max-width:var(--cww);margin:var(--sp16) auto 0}
+.fi{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:var(--sp8)}
+.fbr{max-width:320px}.fl{font-family:var(--fd);font-size:var(--tx-base);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:var(--sp3)}.ft{font-size:var(--tx-sm);color:var(--txm);line-height:1.7}.fm{font-family:var(--fd);font-size:var(--tx-xs);color:var(--txf);letter-spacing:.09em;text-transform:uppercase;margin-top:var(--sp6)}
+.fc{display:flex;gap:var(--sp6);flex-wrap:wrap}.fct{font-family:var(--fd);font-size:var(--tx-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--txf);margin-bottom:var(--sp4)}.fcl{list-style:none;display:flex;flex-direction:column;gap:var(--sp3)}.fcl a{font-size:var(--tx-sm);color:var(--txm);transition:color var(--ease);cursor:pointer}.fcl a:hover{color:var(--tl)}
+.tcr{color:var(--red)}.tct{color:var(--tl)}.tcg{color:var(--ok)}.tcgld{color:var(--gld)}.tcp{color:var(--pur)}.tcw{color:var(--warn)}.tcm{color:var(--txm)}.bold{font-weight:700}.mono{font-family:var(--fd)}
+.mt4{margin-top:var(--sp4)}.mt6{margin-top:var(--sp6)}.mt8{margin-top:var(--sp8)}.mb4{margin-bottom:var(--sp4)}.mb6{margin-bottom:var(--sp6)}
+@media(max-width:768px){.nav{display:none}.hero{padding:var(--sp20) var(--sp4) var(--sp12)}.sec{padding:var(--sp12) var(--sp4)}.sh{flex-direction:column;gap:var(--sp4)}.sn{font-size:var(--tx-xl)}.fi{flex-direction:column}.fc{flex-direction:column;gap:var(--sp4)}}
+</style>
+</head>
+<body>
+<div class="pb"><div class="pf" id="pf"></div></div>
+<header class="hdr">
+  <div class="hi">
+    <div class="logo"><div class="lt"></div><div><div>NIRMATA HOLDINGS</div><div class="ls">AgriTech Intel Command V2.0</div></div></div>
+    <nav><ul class="nav"><li><span class="nv" onclick="go('societal')">Societal</span></li><li><span class="nv" onclick="go('ecosystem')">Ecosystem</span></li><li><span class="nv" onclick="go('atom')">ATOM</span></li><li><span class="nv" onclick="go('phil')">Philosophy</span></li><li><span class="nv" onclick="go('situational')">Situational</span></li><li><span class="nv" onclick="go('matrix')">Intel Matrix</span></li></ul></nav>
+    <div class="hr"><span class="cb">TOP SECRET</span><button class="tb" data-theme-toggle aria-label="Toggle theme"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hg"></div><div class="o1"></div><div class="o2"></div>
+  <div class="hc">
+    <div class="ey"><div class="el"></div>NIRMATA HOLDINGS — COMMAND BRIEFING V2 — 07.06.2026</div>
+    <h1 class="ht"><span class="a1">GLOBAL</span><br>AGRITECH<br><span class="a2">CRISIS</span></h1>
+    <div class="hm-wrap">
+      <div class="hmi"><span class="hml">Threat Level</span><span class="hmv cr">CRITICAL</span></div>
+      <div class="hmi"><span class="hml">Operational Window</span><span class="hmv ct">2026–2030</span></div>
+      <div class="hmi"><span class="hml">FARMPEC Probability</span><span class="hmv cr">68% BY 2030</span></div>
+      <div class="hmi"><span class="hml">Acute Food Insecure</span><span class="hmv cr">266M People (WFP)</span></div>
+      <div class="hmi"><span class="hml">New Sections</span><span class="hmv cg">4 ADDED V2</span></div>
+      <div class="hmi"><span class="hml">Classification</span><span class="hmv">EYES ONLY</span></div>
+    </div>
+    <div class="sng">
+      <div class="snc new" onclick="go('societal')"><div class="snn">NEW — I</div><div class="snt">SOCIETAL PULSE</div><div class="sns">Public awareness, political signals &amp; adoption window timing</div><span class="snb bnew">NEW INTEL</span></div>
+      <div class="snc new" onclick="go('ecosystem')"><div class="snn">NEW — II</div><div class="snt">ECOSYSTEM HUB</div><div class="sns">Manhattan Project model — allied innovation counter-force</div><span class="snb bnew">NEW INTEL</span></div>
+      <div class="snc new" onclick="go('atom')"><div class="snn">NEW — III</div><div class="snt">ATOM AI LAYER</div><div class="sns">Supercharger strategy — MCP interoperability architecture</div><span class="snb bnew">NEW INTEL</span></div>
+      <div class="snc new" onclick="go('phil')"><div class="snn">NEW — IV</div><div class="snt">FIRST PRINCIPLES</div><div class="sns">Philosophical framework by phase — reverse engineer to truth</div><span class="snb bnew">NEW INTEL</span></div>
+      <div class="snc" onclick="go('situational')"><div class="snn">BASE — V</div><div class="snt">SITUATIONAL REPORT</div><div class="sns">Polycrisis — state actors, food weaponization, FARMPEC</div><span class="snb bbase">BASE</span></div>
+      <div class="snc" onclick="go('matrix')"><div class="snn">BASE — VI</div><div class="snt">INTEL MATRIX</div><div class="sns">Soil tech, blockchain, AI gaps &amp; opportunity matrix</div><span class="snb bbase">BASE</span></div>
+    </div>
+  </div>
+</section>
+<main>
+<!-- SECTION I -->
+<hr class="div">
+<section class="sec" id="societal">
+  <div class="sh"><div class="sn">I</div><div class="shc"><div class="nf">NEW INTELLIGENCE SECTION</div><div class="stag"><div class="td" style="background:var(--ok)"></div><span class="tcg">SOCIETAL PULSE — PUBLIC AWARENESS &amp; ADOPTION WINDOW</span></div><h2 class="stitle">The Awakening Signal: Public Urgency, Political Momentum &amp; Chasm Timing</h2><p class="ssub">Before deploying any solution, commanders must map exactly where the civilian population stands in its understanding of the crisis — is the signal loud enough, are the windows open, and where precisely on the adoption curve are we operating right now?</p></div></div>
+  <div class="co cor">
+    <div class="coh">⚡ THE JAY COLLINS SIGNAL — FLORIDA GROUND ZERO</div>
+    <div class="cob">
+      <p>Florida Lt. Governor <strong>Jay Collins</strong> — 23-year Green Beret, Florida Senate Agriculture Committee Chair, and 2026 gubernatorial candidate — is actively running TV campaign ads and holding farm visits specifically on the issue of <strong>banning Russia and China from Florida farmland</strong>. His campaign position: <em>"Agriculture security is national security. Florida land for Floridians — banning the Chinese Communist Party from buying up land that belongs to us."</em></p>
+      <p>In <strong>May 2026</strong> Collins held a press conference at the Florida Citrus Tower in Lake County focused specifically on farmer and food security. In March 2026 he visited Marion County (Ocala — your backyard). He authored Florida's SB 264 (signed by DeSantis 2023) banning CCP-tied entities from acquiring farmland near military installations. A military-intelligence-trained politician is <strong>staking his entire gubernatorial campaign</strong> on this issue because internal polling confirms it is a top-3 Florida voter concern. The issue has crossed from policy think tanks into paid TV advertising. <span class="tcr bold">This is a tier-1 societal signal confirming the awareness window is wide open.</span></p>
+    </div>
+  </div>
+  <div class="subh">FEDERAL LEGISLATIVE AVALANCHE — 2025–2026</div>
+  <div class="g3">
+    <div class="card ct"><div class="ci cib">🏛️</div><div class="ch">Farm, Food &amp; National Security Act of 2026 — H.R. 7567</div><div class="cb2">Introduced Feb 13, 2026 — passed the US House <span class="tct bold">April 30, 2026 by a vote of 224–200</span>, the farthest a Farm Bill has advanced since 2018. Key: permanently adds USDA Secretary to CFIUS; mandatory CFIUS review for China/Russia land acquisitions; "Buy American" provisions banning Chinese and Russian poultry/seafood in school programs. Bipartisan food sovereignty is now federal law in motion.</div></div>
+    <div class="card ct"><div class="ci cib">🛡️</div><div class="ch">USDA National Farm Security Action Plan — July 2025</div><div class="cb2">Released July 8, 2025 — first time USDA, DoD, DOJ, and DHS coordinated a unified agricultural threat response with 7 action areas. December 2025 follow-up advanced AFIDA reforms and removed foreign adversary entities from BioPreferred and USDA lending programs. Agriculture formally classified as national security infrastructure. <span class="tct bold">Signal strength: MAXIMUM.</span></div></div>
+    <div class="card"><div class="ci cir">⚖️</div><div class="ch">25+ States Active — Farmland Security Laws 2025–26</div><div class="cb2">Iowa (banning foreign government ownership) to Florida (CCP ban) to 15+ states introducing new laws in 2025 alone. USDA AFIDA data: <span class="tcr bold">45.85 million acres</span> of US ag land foreign-held (3.61% of all privately held), up from ~24M acres in 2010. Senators Baldwin and Grassley introduced the Farmland Security Act of 2025 adding criminal penalties for shell corporation concealment. This is a mainstream voter issue.</div></div>
+  </div>
+  <div class="subh mt8">PUBLIC AWARENESS METRICS — 2026</div>
+  <div class="g2">
+    <div class="card"><div class="cst str">88%</div><div class="ch">Americans Support Blocking Chinese Land Acquisition</div><div class="cb2">Vandenberg Coalition polling: 88% of Americans support efforts to prevent China from acquiring US land. <strong>70% express strong support.</strong> 75% rank China as a high or extremely high national security threat. This is the strongest bipartisan consensus in American politics — cutting across party, age, and income groups. Every politician is now running on this issue.</div></div>
+    <div class="card"><div class="cst str">266M</div><div class="ch">People at Risk of Acute Hunger Globally — WFP 2026</div><div class="cb2">WFP Global Report on Food Crises: 266 million people already facing crisis-level hunger in 2026. WFP warned May 2026: an additional <span class="tcr bold">45 million more</span> could be pushed into acute hunger if conflict escalates — potentially 318M total. First time GRFC confirmed two simultaneous famines (Gaza + Sudan 2025) in its 10-year history. <span class="tcr bold">The crisis is real-time and accelerating.</span></div></div>
+  </div>
+  <div class="subh mt8">PUBLIC AWARENESS &amp; URGENCY RADAR — US &amp; GLOBAL 2026</div>
+  <div class="card mt4" id="sbp">
+    <div class="sbr"><div class="sbl"><span>Americans supporting block on Chinese farmland acquisition</span><span class="tcr mono bold">88%</span></div><div class="sbt"><div class="sbf fr" data-w="88%"></div></div></div>
+    <div class="sbr mt4"><div class="sbl"><span>Americans rating China "high/extreme" national security threat</span><span class="tcw mono bold">75%</span></div><div class="sbt"><div class="sbf fw" data-w="75%"></div></div></div>
+    <div class="sbr mt4"><div class="sbl"><span>US working-age adults personally food insecure (Urban Institute 2026)</span><span class="tcr mono bold">27.7%</span></div><div class="sbt"><div class="sbf fr" data-w="27.7%"></div></div></div>
+    <div class="sbr mt4"><div class="sbl"><span>US states with active foreign farmland legislation 2025–2026</span><span class="tcgld mono bold">50%+</span></div><div class="sbt"><div class="sbf fgld" data-w="52%"></div></div></div>
+    <div class="sbr mt4"><div class="sbl"><span>Public deep understanding of food as geopolitical weapon (gap to fill)</span><span class="tcg mono bold">~35%</span></div><div class="sbt"><div class="sbf fg" data-w="35%"></div></div></div>
+    <div class="sbr mt4"><div class="sbl"><span>Global population in chronic hunger — UN FAO 2024 (8.2% / 673M)</span><span class="tct mono bold">8.2%</span></div><div class="sbt"><div class="sbf fb" data-w="8.2%"></div></div></div>
+  </div>
+  <div class="subh mt8">ADOPTION CURVE POSITIONING — WHERE THE WINDOW IS RIGHT NOW</div>
+  <div class="ac">
+    <svg viewBox="0 0 800 200" width="100%" style="max-height:180px"><defs><linearGradient id="cg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="rgba(255,61,61,.55)"/><stop offset="35%" stop-color="rgba(255,140,0,.65)"/><stop offset="55%" stop-color="rgba(0,180,216,.85)"/><stop offset="100%" stop-color="rgba(0,200,150,.4)"/></linearGradient><linearGradient id="fg2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(255,61,61,.07)"/><stop offset="100%" stop-color="rgba(0,200,150,.02)"/></linearGradient></defs><path d="M40 180 C80 180,120 170,160 140 C200 110,240 60,280 28 C320 8,360 5,400 12 C440 19,480 50,520 82 C560 112,600 148,650 168 C700 175,740 180,760 180 Z" fill="url(#fg2)"/><path d="M40 180 C80 180,120 170,160 140 C200 110,240 60,280 28 C320 8,360 5,400 12 C440 19,480 50,520 82 C560 112,600 148,650 168 C700 175,740 180,760 180" fill="none" stroke="url(#cg)" stroke-width="2.5"/><line x1="445" y1="5" x2="445" y2="180" stroke="rgba(255,61,61,.55)" stroke-width="1.5" stroke-dasharray="5,4"/><text x="450" y="18" font-family="Space Mono" font-size="7.5" fill="rgba(255,61,61,.75)">THE CHASM</text><circle cx="400" cy="14" r="8" fill="none" stroke="#00b4d8" stroke-width="2.5"/><circle cx="400" cy="14" r="4" fill="#00b4d8"/><text x="400" y="5" font-family="Space Mono" font-size="7" fill="#00b4d8" text-anchor="middle">◀ YOU ARE HERE</text></svg>
+    <div class="al">
+      <span class="alb">INNOVATORS<br><span class="tcr">Policy/Mil<br>2023–25</span></span>
+      <span class="alb">EARLY ADOPTERS<br><span class="tcw">Ag Industry<br>2025–26</span></span>
+      <span class="alb cur">◀ PRE-CHASM ▶<br>NIRMATA: NOW 2026</span>
+      <span class="alb">EARLY MAJORITY<br><span class="tct">Mainstream<br>2027–29</span></span>
+      <span class="alb">LATE MAJORITY<br><span class="tcm">2029+</span></span>
+    </div>
+  </div>
+  <div class="co cot">
+    <div class="coh">🎯 WINDOW ASSESSMENT: OPTIMAL — BUT CLOSING FAST</div>
+    <div class="cob">
+      <p><strong>The societal signal is strong enough to launch without educating from zero.</strong> You have awareness (88% on China land threat), personal crisis experience (27.7% food insecurity), legislative momentum (USDA National Farm Security Action Plan + H.R. 7567 passed House), and political champions (Collins + bipartisan Congressional support). Deep public understanding of food-as-geopolitical-weapon specifically sits at ~35% — the fear and anger exist, the solution framework is not yet mainstream. This is the perfect gap to fill.</p>
+      <p>This places Nirmata in the late Early Adopter / pre-Chasm zone — Moore's "beachhead" moment. Wait 18+ more months: mainstream competitors enter, commoditize, and first-mover advantage vanishes. <span class="tcg bold">Optimal launch window: H2 2026. The Chasm closes by end of 2027. Act now.</span></p>
+    </div>
+  </div>
+  <div class="subh mt8">THREAT ACTOR PUBLIC SIGNAL STRENGTH</div>
+  <div class="tl">
+    <div class="tr2"><span class="tf">🇨🇳</span><span class="tn">China / CCP Farmland Acquisition</span><span class="tlv lvex">Extreme Public Awareness</span></div>
+    <div class="tr2"><span class="tf">🇷🇺</span><span class="tn">Russia Grain Weaponization + BRICS Grain Exchange</span><span class="tlv lvhi">High — Policy Level</span></div>
+    <div class="tr2"><span class="tf">🇦🇪</span><span class="tn">UAE/Gulf SWF Strategic Farmland Acquisition</span><span class="tlv lvmd">Medium — Emerging</span></div>
+    <div class="tr2"><span class="tf">🌐</span><span class="tn">FARMPEC Cartel Formation (68% by 2030)</span><span class="tlv lvac">Low Public / High Policy</span></div>
+    <div class="tr2"><span class="tf">🦠</span><span class="tn">Cyber-Agriculture / Bioweapon Crop Threats</span><span class="tlv lvac">Intel Community Only</span></div>
+  </div>
+</section>
+<!-- SECTION II -->
+<hr class="div">
+<section class="sec" id="ecosystem">
+  <div class="sh"><div class="sn">II</div><div class="shc"><div class="nf">NEW INTELLIGENCE SECTION</div><div class="stag"><div class="td" style="background:var(--gld)"></div><span class="tcgld">ECOSYSTEM CREATION — THE ALLIED INNOVATION FORCE</span></div><h2 class="stitle">The AgriTech Manhattan Project: Building the Counter-Cartel Coalition</h2><p class="ssub">When 4 state actors have a 68% probability of forming a FARMPEC cartel by 2030, the only countermeasure that matches coordinated state power is an equally coordinated — but decentralized, collectively capitalist — innovation ecosystem. Los Alamos didn't win alone. Neither will any single company.</p></div></div>
+  <div class="co cog">
+    <div class="coh">⚛️ THE MANHATTAN PROJECT PARALLEL</div>
+    <div class="cob">
+      <p>Los Alamos brought together the world's greatest physicists — Oppenheimer, Fermi, Bohr, Feynman — not as competitors but as a <strong>segmented but united allied force under a shared existential mission.</strong> Result: 5,600+ inventions, 2,100+ patent applications, a technological edge that shaped 80 years of geopolitics. LANL's National Security AI Office (est. 2025) explicitly replicates this model, uniting government, AI industry leaders, and academia. Purdue University and LANL signed an MOU in July 2025 specifically for AI computational modeling and national security, with plans to colocate researchers.</p>
+      <p>The EU's "Apply AI in Agriculture" workshop (June 2026) — 180 experts, 14 member states — concluded AI in agriculture needs open, interoperable architectures with farmer-owned data. The IPES-Food June 2026 report urges "resilient self-reliance" and cooperative regional food strategies. The global alliance framework is being assembled. <span class="tcgld bold">Nirmata leads it from the front — or it gets led by the cartel.</span></p>
+    </div>
+  </div>
+  <div class="subh">WHY A CARTEL KILLS INNOVATION</div>
+  <div class="g2">
+    <div class="card cr"><div class="ci cir">🌾</div><div class="ch">The FARMPEC Axis: What Consolidation Looks Like</div><div class="cb2"><strong>China:</strong> COFCO controls 15–20% of global grain trade. $25B Russia grain deal (70M tonnes / 12 years). 725M tonne domestic production target by 2030. COFCO International + Gulf SWFs now control ~40% of global grain trade.<br><br><strong>Russia:</strong> BRICS grain exchange (Putin-endorsed March 2024) to eliminate USD settlement. Russia-China transnational corridor: 8M+ tonnes/yr when complete — displacing US/Canadian/Australian/French grain in target markets by 2028.<br><br><span class="tcr bold">A cartel does not allow solutions — solutions mean loss of power. They would rather have people starve than cede strategic leverage. This is documented state behavior.</span></div></div>
+    <div class="card cgld"><div class="ci cigld">🔰</div><div class="ch">Why Collective Capitalism Beats State Capitalism</div><div class="cb2">State actors optimize for power concentration, not innovation diffusion. Their model <em>requires</em> scarcity and dependency as the product. Our ecosystem model is the antithesis: <strong>collective capitalist innovation creates value by solving problems.</strong><br><br>When the mission is food sovereignty, ecosystem partners don't compete with each other — they compete with hunger, soil death, and state-actor control. Each node specializes (soil science, AI, blockchain, satellite, financing, field networks) while united by the shared mission charter. One alliance. Seven node types. One adversary.</div></div>
+  </div>
+  <div class="subh mt8">THE SEVEN NODE ECOSYSTEM MODEL</div>
+  <div class="eg">
+    <div class="en" style="--nc:rgba(0,180,216,.08)"><div class="ni">⚡</div><div class="nl">Core AI/Tech Hub</div><div class="ns">Nirmata, AntimatterAI, ATOM — the command intelligence layer</div></div>
+    <div class="en" style="--nc:rgba(0,200,150,.06)"><div class="ni">🧬</div><div class="nl">Biotech &amp; Soil</div><div class="ns">RRG.bio, fulvic/humic research labs, soil microbiome scientists</div></div>
+    <div class="en" style="--nc:rgba(255,215,0,.05)"><div class="ni">🌍</div><div class="nl">Sovereign Partners</div><div class="ns">Allied ag ministries, USDA liaisons, EU DG-AGRI offices</div></div>
+    <div class="en" style="--nc:rgba(168,85,247,.05)"><div class="ni">📡</div><div class="nl">Data &amp; Intelligence</div><div class="ns">Satellite imagery, IoT sensors, OSINT food crisis monitors</div></div>
+    <div class="en" style="--nc:rgba(255,61,61,.05)"><div class="ni">🔐</div><div class="nl">Quantum Security</div><div class="ns">Post-quantum cryptography for agri-blockchain — zero existing solutions globally</div></div>
+    <div class="en" style="--nc:rgba(255,140,0,.05)"><div class="ni">🌱</div><div class="nl">Field Networks</div><div class="ns">500M+ smallholder farms, cooperative ag orgs, extension networks</div></div>
+    <div class="en" style="--nc:rgba(0,200,150,.04)"><div class="ni">💰</div><div class="nl">Capital Layer</div><div class="ns">Impact investors, RWA tokenized farmland, parametric insurance</div></div>
+  </div>
+  <div class="subh mt8">ECOSYSTEM DEPLOYMENT PHASING</div>
+  <div class="tw">
+    <table class="tbl">
+      <thead><tr><th>Phase</th><th>Timeframe</th><th>Objective</th><th>Key Actions</th><th>Success Metric</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tr">PHASE 0 — NUCLEUS</span></td><td class="hl">Q3–Q4 2026</td><td>Establish core 5–7 founding partners</td><td>MOUs with RRG.bio, soil labs, 1–2 sovereign liaisons; shared IP framework; mission charter</td><td>5+ founding partners; legal structure complete</td></tr>
+        <tr><td><span class="tg">PHASE 1 — BEACHHEAD</span></td><td class="hl">H1 2027</td><td>Deploy ATOM as ecosystem intelligence layer</td><td>3+ MCP integrations; soil health pilots in 2 nations; open white papers published</td><td>3+ integrations; 1,000+ farms on pilot</td></tr>
+        <tr><td><span class="tt">PHASE 2 — CHASM CROSS</span></td><td class="hl">H2 2027–2028</td><td>Cross Chasm into mainstream adoption</td><td>100K+ farms; tokenized agri-commodity pilots; 2+ sovereign MOU partners; GRFC 2027 media campaign</td><td>100K farms; $10M+ ARR; 2 sovereign partners</td></tr>
+        <tr><td><span class="to">PHASE 3 — FORTRESS</span></td><td class="hl">2029–2030</td><td>Become the irreplaceable counter-cartel infrastructure layer</td><td>Post-quantum blockchain for grain futures live; 500M smallholder AI access; G7 inclusion</td><td>Critical infrastructure status in 5+ nations</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="qb"><p>"The entities that solve soil health, AI-optimize food production, tokenize agricultural supply chains, and democratize precision farming for smallholders will command multi-trillion-dollar positions by 2035. But only if they band together before the cartel solidifies."</p><cite>— NIRMATA HOLDINGS / AGRITECH INTEL BRIEFING V2 — 07.06.2026</cite></div>
+</section>
+<!-- SECTION III -->
+<hr class="div">
+<section class="sec" id="atom">
+  <div class="sh"><div class="sn">III</div><div class="shc"><div class="nf">NEW INTELLIGENCE SECTION</div><div class="stag"><div class="td" style="background:var(--tl)"></div><span class="tct">ATOM AI — SUPERCHARGER LAYER STRATEGY</span></div><h2 class="stitle">ATOM as the Universal AgriTech Intelligence Layer: Don't Rip — Supercharge</h2><p class="ssub">The fastest path to maximum adoption is not replacement — it is enhancement. ATOM must be the intelligence nervous system that makes every existing AgriTech AI platform smarter, more defensible, and quantum-resistant. No rip-and-replace. Pure amplification.</p></div></div>
+  <div class="co cot">
+    <div class="coh">🔬 CORE STRATEGY: MCP-POWERED INTEROPERABILITY</div>
+    <div class="cob">
+      <p>As of 2026, the <strong>Model Context Protocol (MCP)</strong> — created by Anthropic — has achieved over <span class="tct bold">17,000+ publicly listed MCP servers</span> with widespread developer adoption and growing enterprise deployment. MCP creates a consistent interface for AI agents to access external data sources, tools, and APIs — enabling any AI agent to discover and invoke capabilities across enterprise systems without custom integrations per connection. Gartner has confirmed MCP is fundamentally changing patterns for building LLM-based AI agents in 2026.</p>
+      <p>The EU's ATLAS project (Agricultural Interoperability and Analysis System, H2020-funded) is explicitly building open platform infrastructure for interoperability between agricultural machinery, sensors, and data systems — the exact architecture ATOM's SDK layer should slot into. <strong>ATOM's architecture: be the MCP-native intelligence layer that sits above all fragmented AgriTech AI platforms — the enhancement layer, not the replacement. Every existing platform keeps its interface. ATOM adds intelligence, security, and geopolitical context they cannot build alone.</strong></p>
+    </div>
+  </div>
+  <div class="subh">THE ATOM LAYER ARCHITECTURE</div>
+  <div class="ad">
+    <div class="ls2">
+      <div class="li la"><span class="lb lba">ATOM LAYER</span><div class="lc"><div class="lt2">⚡ ATOM Intelligence Orchestration — The Supercharger</div><div class="ld2">Quantum-resistant multi-modal AI orchestration | Real-time geopolitical threat intelligence fusion | Cross-platform agronomic reasoning engine | Post-quantum cryptographic security envelope | MCP server exposure for all connected systems | FARMPEC risk assessment layer | Fulvic/humic precision dosing AI | Carbon credit verification output | Smallholder voice AI bridge (multilingual, offline-capable)</div></div></div>
+      <div class="lar">⬆️ enhances / connects to ⬇️</div>
+      <div class="li le"><span class="lb lbe">EXISTING AI PLATFORMS</span><div class="lc"><div class="lt2">🌾 Existing AgriTech AI Systems — Preserved, Enhanced, Not Replaced</div><div class="ld2">Precision agriculture platforms (Climate Corp, Granular, Trimble) | Crop disease detection AI (CNN models on satellite/drone imagery) | Yield prediction LSTM networks | Smart irrigation AI | Autonomous farm equipment | Soil IoT sensor networks | Weather API integrations | Any platform with a REST API or MCP server</div></div></div>
+      <div class="lar">⬆️ feeds from ⬇️</div>
+      <div class="li ld"><span class="lb lbd">DATA SUBSTRATE</span><div class="lc"><div class="lt2">📡 Unified Data Foundation — Multi-Source Fusion</div><div class="ld2">Satellite imagery | IoT soil sensors | Weather APIs | Commodity market data | Geopolitical intelligence feeds | Carbon credit registries | Blockchain warehouse receipts | Smallholder voice AI inputs (multilingual) | USDA / FAO / WFP data streams</div></div></div>
+    </div>
+  </div>
+  <div class="subh mt8">ATOM'S UNIQUE VALUE — WHAT NO EXISTING PLATFORM DOES</div>
+  <div class="g2">
+    <div class="card ct"><div class="ci cib">🛡️</div><div class="ch">Quantum-Resistant Security Envelope</div><div class="cb2">Every existing AgriTech AI and agri-commodity blockchain platform has <strong>zero post-quantum cryptographic security.</strong> ATOM wraps all integrated systems in a quantum-resistant layer — making the entire ecosystem defensible against state-actor quantum computing attacks on the 5–7 year horizon. First mover advantage: 100%. This single feature alone justifies integration for any enterprise-grade platform building for the 2030 threat environment.</div></div>
+    <div class="card cr"><div class="ci cir">🧠</div><div class="ch">Geopolitical Risk Intelligence Fusion</div><div class="cb2">No existing AgriTech AI fuses geopolitical intelligence (FARMPEC movements, sanctions, chokepoint status, foreign farmland acquisition alerts) with farm-level agronomic data. ATOM does this natively. A farmer in Iowa doesn't need to understand China's soy infrastructure strategy — ATOM knows, and adjusts recommendations accordingly. <span class="tcr bold">This strategic moat cannot be replicated without replicating the entire Nirmata intelligence stack.</span></div></div>
+    <div class="card cg"><div class="ci cig">📱</div><div class="ch">Smallholder Voice AI Bridge</div><div class="cb2">500M+ smallholder farms have zero AI access. Existing platforms are built for large commercial operations with desktop interfaces. ATOM's mobile-first, voice AI interface — multilingual, offline-capable — is the only viable path to the 80% of world's farmers currently excluded. Network effect: the largest agricultural data flywheel on Earth, generating training data that strengthens every connected system.</div></div>
+    <div class="card cgld"><div class="ci cigld">🔗</div><div class="ch">Carbon Credit + Blockchain Unification</div><div class="cb2">$374M soil carbon credit market (→$36B) has no trusted AI-verified measurement system. $7B+ tokenized agri-commodity market (→$110B by 2030) has no post-quantum security. ATOM bridges both: triple-market capture from one intelligence layer — $36B biostimulants + $24B precision ag + $374M carbon credits — all addressable simultaneously.</div></div>
+  </div>
+  <div class="subh mt8">INTEGRATION PATHWAYS</div>
+  <div class="tw">
+    <table class="tbl">
+      <thead><tr><th>Method</th><th>Target Systems</th><th>ATOM Enhancement</th><th>Timeline</th><th>Friction</th></tr></thead>
+      <tbody>
+        <tr><td class="hl">MCP Server Exposure</td><td>All MCP-compatible AgriTech platforms (17,000+ public MCP servers in 2026)</td><td>ATOM becomes discoverable intelligence layer — platforms query ATOM for geopolitical context, threat intel, quantum security, carbon output</td><td><span class="tt">NOW — 2026</span></td><td><span class="to">LOW — standards-based</span></td></tr>
+        <tr><td class="hl">REST/GraphQL API Integration</td><td>Climate Corp, Granular, Trimble, AGCO enterprise platforms</td><td>ATOM enriches existing platform data with geopolitical intelligence, carbon verification, quantum security wrapper</td><td><span class="tt">Q4 2026–Q1 2027</span></td><td><span class="tg">MEDIUM — partnerships needed</span></td></tr>
+        <tr><td class="hl">IoT Data Bridge</td><td>Soil sensor networks, satellite providers, drone imagery platforms</td><td>Fuses multi-source data into unified farm intelligence; adds fulvic/humic AI optimization on top of raw sensor data</td><td><span class="tg">Q1–Q2 2027</span></td><td><span class="tg">MEDIUM — data normalization</span></td></tr>
+        <tr><td class="hl">White-Label SDK</td><td>Smallholder cooperative platforms, government ag ministries</td><td>"Powered by ATOM" model — partner owns interface, ATOM owns intelligence layer. Fastest route to 500M farm access.</td><td><span class="tr">Q3 2027+</span></td><td><span class="to">LOW partner friction</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="subh mt8">DEFENSIVE POSTURE — PROTECTING THE ATOM LAYER</div>
+  <div class="g3">
+    <div class="card cr"><div class="ci cir">⚔️</div><div class="ch">Cyber-Agriculture Attack Vector</div><div class="cb2">State actors can target ATOM: DDoS, supply chain poisoning, adversarial data injection. <strong>Defense:</strong> Federated architecture (no single point of failure); post-quantum encryption at rest and in transit; air-gapped redundancy for critical sovereign partner nodes; adversarial robustness red-teaming quarterly.</div></div>
+    <div class="card cwarn"><div class="ci ciw">🤖</div><div class="ch">AI Monoculture Risk</div><div class="cb2">If ATOM optimizes all farms identically, one adversarial data injection wipes out global recommendations simultaneously. <strong>Defense:</strong> Ensemble model architecture with regional variation; uncertainty quantification surfaced visibly to users; human-in-the-loop for critical, irreversible farm decisions. Diversity of AI recommendations is a survival mechanism.</div></div>
+    <div class="card cg"><div class="ci cig">🌐</div><div class="ch">Data Sovereignty Architecture</div><div class="cb2">Big Tech acquiring farm sensor data recreates dependency colonialism. <strong>Defense:</strong> Farmer-owned data architecture — ATOM never owns data, only processes it. Cooperative data trust model. Data stays in sovereign jurisdiction. This ethical moat is the single feature Big Tech cannot replicate without destroying their own business model.</div></div>
+  </div>
+</section>
+<!-- SECTION IV — PHILOSOPHY -->
+<hr class="div">
+<section class="sec" id="phil">
+  <div class="sh"><div class="sn">IV</div><div class="shc"><div class="nf">NEW INTELLIGENCE SECTION</div><div class="stag"><div class="td" style="background:var(--pur)"></div><span class="tcp">FIRST PRINCIPLES PHILOSOPHY — REVERSE ENGINEERING TO TRUTH</span></div><h2 class="stitle">The Philosophical Compass: Questions That Must Be Answered Before Each Phase</h2><p class="ssub">Answer the philosophical questions first, and solutions reveal themselves with precision — avoiding analysis paralysis, over-engineering, and obstacles of our own making. Each phase cannot proceed until its governing questions are answered with genuine first-principles clarity.</p></div></div>
+  <div class="co cop">
+    <div class="coh">🧭 THE FIRST PRINCIPLES MANDATE</div>
+    <div class="cob"><p>Musk builds rockets by asking "What is the fundamental physics?" — not "how have rockets always been built?" Feynman: if you can't explain it simply, you don't understand it well enough. Occam's Razor: don't multiply entities beyond necessity. These are <strong>algorithmic constraints on our decision-making</strong> at every phase. Answer the questions below before proceeding. The logistics, personnel, and deployment sequence for each phase becomes self-evident once the philosophical questions are resolved with genuine clarity. Fail to answer them, and we will over-engineer ourselves into the paralysis we're trying to avoid.</p></div>
+  </div>
+  <div class="mt6">
+    <div class="ph open">
+      <div class="phh" onclick="tQ(this)"><span class="ppb pp1">PHASE 0</span><span class="pht">Nucleus — Foundation: Why Are We Doing This &amp; For Whom?</span><svg class="phc" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="phb">
+        <ul class="ql">
+          <li class="qi"><span class="qn">Q1</span><div class="qc"><div class="qt">What is the irreducible purpose of food in a civilization — and does our solution serve that purpose, or does it serve the solution?</div><div class="qr">This is the philosophical kill switch on over-engineering. Every feature must trace back to human dignity and survival in one sentence. If it can't, it is over-scoped. Every sprint, every feature request: "Which part of human dignity or survival does this serve?" If the answer requires more than one sentence, the feature is cut. This constraint alone prevents analysis paralysis by eliminating 80% of decision debates before they start.</div><div class="qp">First Principle: Purpose precedes product. Descartes: Clear and distinct ideas only. If it cannot be stated simply, it is not yet understood.</div></div></li>
+          <li class="qi"><span class="qn">Q2</span><div class="qc"><div class="qt">Who has the moral authority to define food sovereignty — the individual farmer, the nation-state, or humanity collectively? How does our ecosystem honor all three simultaneously without privileging one?</div><div class="qr">This defines governance architecture. A technocratic solution that bypasses farmer agency recreates the power concentration we are fighting. The answer forces architecture to be participatory, not extractive — philosophical justification for farmer-owned data models over Big Tech aggregation. The governance answer is the product answer. Get it right in Phase 0 or spend Phase 3 trying to retrofit it under resistance from partners who now have power to oppose it.</div><div class="qp">Rawls' Veil of Ignorance: design for the least advantaged — the smallholder with no AI access. If it works for them, it works for everyone above them on the access curve.</div></div></li>
+          <li class="qi"><span class="qn">Q3</span><div class="qc"><div class="qt">If the FARMPEC cartel is rational in maximizing its power, what does a perfectly rational counter-strategy look like — and is ours truly that, or are we fighting the last war with last-war weapons?</div><div class="qr">Game theory demands we model the adversary's optimal response to our moves before we make them. State actors have quantum computing, disinformation capabilities, and patience measured in decades. This question is revisited at every phase transition. The answer changes as the game state changes. Today's optimal move is not 2029's optimal move. Build the review into the calendar, not just the plan.</div><div class="qp">Von Neumann's Minimax: minimize the maximum loss the adversary can inflict on us, not just the current loss. Sun Tzu: Know your enemy, know yourself.</div></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ph">
+      <div class="phh" onclick="tQ(this)"><span class="ppb pp2">PHASE 1</span><span class="pht">Beachhead — Adoption: What Must Be True for the First Farmer to Trust Us?</span><svg class="phc" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="phb">
+        <ul class="ql">
+          <li class="qi"><span class="qn">Q4</span><div class="qc"><div class="qt">What is the minimum viable truth we must prove to an early adopter farmer — not a promise, not a pitch, but an observable, measurable truth — before they integrate ATOM into their operation?</div><div class="qr">What constitutes "proof" for a pragmatist who has seen a dozen AgTech platforms come and go? Answer: a single metric — yield increase, cost reduction, or time saved — measurable within one growing season. That single number is the entire Phase 1 product goal. Everything that doesn't contribute to proving that one metric is cut. This is how pilot design prevents feature creep from day one.</div><div class="qp">Karl Popper: A claim is only meaningful if it can be falsified. Design pilots to be falsifiable — willingness to be wrong in public is the credibility asset, not the liability.</div></div></li>
+          <li class="qi"><span class="qn">Q5</span><div class="qc"><div class="qt">Is complexity the enemy or the product? If the average smallholder farmer cannot explain ATOM to their neighbor in one sentence, have we failed at simplicity?</div><div class="qr">Adoption rate is inversely proportional to complexity. The one-sentence test is a literal QA gate: "ATOM tells me when to plant, what to use, and how much — and it works with the tools I already have." Features that complicate it beyond that sentence are cut, regardless of how clever they are. This is not the innovation era asking us to dumb it down — this is Feynman reminding us we don't understand it well enough yet if it requires more than a sentence.</div><div class="qp">Occam's Razor: entities not to be multiplied beyond necessity. If two designs solve the same problem equally well, always ship the simpler one. Always.</div></div></li>
+          <li class="qi"><span class="qn">Q6</span><div class="qc"><div class="qt">What is the true cost of being wrong in Phase 1 — and does that cost require philosophical humility and reversibility to be built into the architecture itself?</div><div class="qr">A wrong Phase 1 crop recommendation that damages a farmer's yield destroys trust permanently in that community and by word of mouth in surrounding communities. This forces uncertainty quantification into every ATOM output. "70% confident" is not hedging — it is honesty. Uncertainty surfaced, not suppressed. An AI that is confidently wrong is more dangerous than one that is visibly uncertain. This is a design principle, encoded in architecture, not a disclaimer in a terms of service.</div><div class="qp">Hippocratic Oath: first, do no harm. Uncertainty must be surfaced as a design principle. The architecture embodies the ethics.</div></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ph">
+      <div class="phh" onclick="tQ(this)"><span class="ppb pp3">PHASE 2</span><span class="pht">Chasm Crossing — Scale: What Changes When 100,000 Farms Depend on Us?</span><svg class="phc" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="phb">
+        <ul class="ql">
+          <li class="qi"><span class="qn">Q7</span><div class="qc"><div class="qt">At what point does our ecosystem model create the same power concentration problem we are fighting against — and what constitutional guardrails must we embed now, before we have the power that makes them politically impossible to add?</div><div class="qr">Every successful network eventually becomes the incumbent it was designed to displace. Decentralization and data sovereignty must be hard architectural constraints in Phase 2, not aspirational values added later. Write the constitution before the empire, not after. Montesquieu's separation of powers is a network architecture principle: build the cage before you need to be caged. This is non-negotiable and must be legal, not just cultural.</div><div class="qp">Madison: "If men were angels, no government would be necessary." Institutional design must precede power accrual. Encode principles in legal instruments, not mission statements.</div></div></li>
+          <li class="qi"><span class="qn">Q8</span><div class="qc"><div class="qt">What is the philosophical difference between democratizing food intelligence and creating a new form of digital agricultural dependency — and how does our business model encode that answer?</div><div class="qr">If farmers become dependent on ATOM and we are acquired, defunded, or disrupted, we have transferred power rather than eliminated it. Open standards, data portability, local AI model caching, offline capability — these are not optional features, they are philosophical commitments expressed in code. The business model must align with the mission or the mission will be sacrificed to the business model. That tradeoff must be explicitly resolved in Phase 2 architecture, not Phase 3 crisis management.</div><div class="qp">Paulo Freire: Technology that doesn't transfer capability is another form of colonization. Tools that empower vs. tools that create dependency — the architecture encodes the ethics.</div></div></li>
+          <li class="qi"><span class="qn">Q9</span><div class="qc"><div class="qt">In crossing the Chasm we shift from visionary early adopters to pragmatic early majority. What must change in our communication — not our technology — and is our team prepared to market truth over aspiration?</div><div class="qr">Innovator language ("revolutionary," "transformative") actively repels pragmatists who want "saves 20% on fertilizer," "my neighbor uses it." This is a discipline challenge: suppressing the innovator's ego to speak the pragmatist's language. The technology does not change. The story changes completely. This is a Phase 2 cultural gate — it must be explicitly addressed in team training and messaging frameworks, not assumed to happen naturally when the customer type changes.</div><div class="qp">Aristotle's Rhetoric: Logos, Ethos, Pathos — in the right proportion for the audience. The early majority needs Logos (proven results) and Ethos (trusted references) before Pathos resonates.</div></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ph">
+      <div class="phh" onclick="tQ(this)"><span class="ppb pp4">PHASE 3</span><span class="pht">Fortress — Legacy: If We Succeed, What Kind of World Have We Built?</span><svg class="phc" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="phb">
+        <ul class="ql">
+          <li class="qi"><span class="qn">Q10</span><div class="qc"><div class="qt">When food sovereignty is restored and the cartel is neutralized — what is ATOM's right relationship to its own obsolescence? Are we building to be necessary forever, or to solve the problem so completely that our most noble outcome is our own irrelevance?</div><div class="qr">The greatest infrastructure becomes invisible: TCP/IP, GPS, clean water systems. Nobody celebrates them, but civilization depends on them. If ATOM succeeds, does it become invisible infrastructure or maintain a visible intelligence position? This determines long-term business model and exit philosophy. The honest first-principles answer determines whether we optimize for mission completion or for perpetuation of the vehicle. These are genuinely different things with different architecture implications.</div><div class="qp">Buckminster Fuller: "You never change things by fighting the existing reality. Build a new model that makes the existing model obsolete." Are we the new model, or do we become the existing model?</div></div></li>
+          <li class="qi"><span class="qn">Q11</span><div class="qc"><div class="qt">What do we owe to the 266 million people currently acutely food insecure who will not benefit from our solution in time — and does that obligation accelerate our deployment timeline even at the cost of slower perfection?</div><div class="qr">This is the trolley problem of innovation deployment. A perfect solution deployed in 2030 may save more people in total. Or it may not. WFP reports 45M additional people at risk in 2026 alone — each month of deployment delay has a countable human cost. Premature deployment of a flawed AI causes direct harm. Delayed deployment of a functional one is also harm. The answer determines Phase 2 go-live criteria and must be explicitly resolved, not assumed based on internal risk comfort alone.</div><div class="qp">Peter Singer: "If we can prevent something bad from occurring, we ought to do it." The counterfactual: what is the human cost of each month of deployment delay at current GRFC acute hunger rates?</div></div></li>
+          <li class="qi"><span class="qn">Q12</span><div class="qc"><div class="qt">How do we maintain the Manhattan Project's unity of mission as the ecosystem grows to thousands of partners with competing commercial interests — what is the minimum viable shared philosophy that keeps the alliance intact when the existential threat becomes less acute?</div><div class="qr">Los Alamos held together because of a shared existential enemy. When the cartel threat is neutralized, the enemy becomes abstract. What replaces existential threat as the unifying force? This must be embedded in the Phase 0 founding charter — because by Phase 3, partners will have enough power to resist any attempt to add it retroactively. Design the constituting principles now, encode them in legal instruments, enforce them while the mission is undeniable and partners are still motivated.</div><div class="qp">Jefferson: "I know no safe depository of the ultimate powers of the society but the people themselves." Institutions survive their founding purpose only if they encode principles, not personalities.</div></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ph">
+      <div class="phh" onclick="tQ(this)"><span class="ppb pp5">ALL PHASES</span><span class="pht">Anti-Paralysis Protocol — Break the Loop When Stuck</span><svg class="phc" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="phb">
+        <ul class="ql">
+          <li class="qi"><span class="qn">AP1</span><div class="qc"><div class="qt">Are we solving a real problem or optimizing an imaginary constraint? Can every team member source their constraint to a real user, a law, or physics?</div><div class="qr">Most analysis paralysis is caused by treating assumptions as requirements. Demand explicit sourcing for every constraint. If it can't be sourced from a user, a law, or physics — delete it. 90% of the time, the blocking constraint is something we invented ourselves. Musk's 5-step process: Step 1 is always "Delete the requirement." The burden of proof is on keeping it, not removing it. This single rule eliminates most planning loops.</div><div class="qp">Musk: "Is this actually a requirement, or did we just assume it?" The person who adds the requirement owns the proof of necessity. No proof — no requirement.</div></div></li>
+          <li class="qi"><span class="qn">AP2</span><div class="qc"><div class="qt">What is the specific cost — in dollars, lives, or competitive position — of not deciding right now versus deciding imperfectly?</div><div class="qr">Indecision is a decision. It always has a cost. Making that cost explicit and visible breaks the paralysis loop because the cost of delay is almost always higher than the cost of imperfect action. At current GRFC rates, 266M+ people are acutely food insecure. Every month of delay has a countable cost. Put that number on a whiteboard in every meeting where action is being deferred. The question "what are we waiting for?" must be followed by "and what does waiting cost?"</div><div class="qp">Opportunity cost accounting. The cost of inaction is nonzero and must be placed on the table alongside — not separately from — the cost of imperfect action.</div></div></li>
+          <li class="qi"><span class="qn">AP3</span><div class="qc"><div class="qt">Can we run a 48-hour experiment that gives us 80% of the information we need — instead of spending 3 months designing the perfect decision process?</div><div class="qr">Bezos's Type 1 vs Type 2 decision framework: most decisions are reversible (Type 2) and should be made quickly and observationally. We over-classify Type 2 decisions as Type 1 constantly — it feels more responsible when it is actually avoidance. If we can undo it, do it fast and observe. The experiment is the research. The plan that never gets to "Do" is not a plan — it is avoidance wearing the costume of rigor. Ship the experiment. Read the results. Adjust. This is not recklessness. This is science.</div><div class="qp">Deming's PDCA: the cycle is only useful if the "Do" step happens quickly. A plan without execution is documentation. Documentation does not feed anyone.</div></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SECTION V -->
+<hr class="div">
+<section class="sec" id="situational">
+  <div class="sh"><div class="sn">V</div><div class="shc"><div class="stag"><div class="td" style="background:var(--red)"></div><span class="tcr">SITUATIONAL REPORT — THE POLYCRISIS</span></div><h2 class="stitle">Base Briefing: State Actors, Food Weaponization &amp; FARMPEC</h2><p class="ssub">The four-front collision of climate breakdown, food weaponization, soil death, and technology opportunity. The 2026–2030 window is the operational present environment, not a theoretical scenario.</p></div></div>
+  <div class="g2">
+    <div class="card cr"><div class="ci cir">🇨🇳</div><div class="ch">China / COFCO — The Acquisition Machine</div><div class="cb2">Controls 15–20% of global grain trade. Strategic farmland acquisition across Africa, South America, US, and Australia. $25B grain deal with Russia — 70M tonnes over 12 years. 15th Five-Year Plan: targeting 725M tonnes domestic production by 2030. COFCO International + Gulf SWFs now control approximately 40% of global grain trade. When food becomes a financial asset rather than a commons, market logic replaces food security logic — with lethal consequences for nations unable to compete.</div></div>
+    <div class="card cr"><div class="ci cir">🇷🇺</div><div class="ch">Russia — Grain as a Weapon of War</div><div class="cb2">Black Sea blockades operational. Leveraging food dependency over Africa and MENA nations as geopolitical leverage. Spearheading BRICS grain exchange (Putin-endorsed March 2024) — an OPEC of the grain trade to eliminate USD settlement. Russia-China transnational grain corridor: 8M+ tonnes/year when complete. By 2028 this corridor fully displaces US, Canadian, Australian, and French grain in target markets. The food weapon is already deployed.</div></div>
+    <div class="card"><div class="ci cir">⚠️</div><div class="ch">FARMPEC: 68% Probability by 2030</div><div class="cb2">Complete vertical grain integration by 4 state actors has a <span class="tcr bold">68% probability by 2030</span> without technological countermeasures. 60M+ acres of prime farmland acquired by foreign state/institutional actors since 2008. Controlling 3 of 5 strategic chokepoints = food supply dominance. After 2030, several feedback loops become <span class="tcr">irreversible.</span></div></div>
+    <div class="card"><div class="ci cigld">💧</div><div class="ch">UAE / Gulf Sovereign Wealth Funds</div><div class="cb2">SWFs acquiring African farmland at scale with no public transparency. "Virtual water" export strategy: acquiring US alfalfa farms in water-stressed states to export embedded water. $180B farmland AUM growing 12.3%/yr across institutional investors, PE funds, and pension managers. Local farmers in Sudan, Ethiopia, Cambodia, Brazil, and Ukraine dispossessed without compensation or recourse.</div></div>
+  </div>
+  <div class="co cor mt8">
+    <div class="coh">🔴 ACTIVE CRISIS ZONES — JULY 2026</div>
+    <div class="cob">
+      <p><strong>🔴 Sudan / Horn of Africa:</strong> 25M people in famine-level conditions. State collapse + land grab convergence. Confirmed famine 2025 — first time GRFC confirmed two simultaneous famines in its 10-year history (Gaza + Sudan).</p>
+      <p><strong>🔴 Gaza Strip:</strong> Confirmed famine 2025. Agricultural land systematically destroyed. Total food dependency on aid. Famine risk persists into 2026.</p>
+      <p><strong>🟠 Yemen:</strong> 17M food insecure. Zero domestic production capacity. Complete aid dependency. No near-term resolution pathway.</p>
+      <p><strong>🟡 Pakistan / Bangladesh:</strong> Climate flooding destroying rice paddies. 400M people at risk. El Niño 61–87% probability by mid-2026 deepens this threat: 20–50% rice output reduction in affected regions.</p>
+      <p><strong>🟡 Central America:</strong> Dry corridor expanding. Mass migration tied directly to consecutive harvest failures — the food crisis and the migration crisis are structurally the same crisis with different downstream manifestations.</p>
+    </div>
+  </div>
+</section>
+<!-- SECTION VI -->
+<hr class="div">
+<section class="sec" id="matrix">
+  <div class="sh"><div class="sn">VI</div><div class="shc"><div class="stag"><div class="td" style="background:var(--tl)"></div><span class="tct">INTEL MATRIX — MARKET INTELLIGENCE &amp; OPPORTUNITY</span></div><h2 class="stitle">Soil Tech, Blockchain, AI Gaps &amp; Strategic Opportunity Matrix</h2><p class="ssub">Where the money is, where the critical gaps are, and where Nirmata's solutions sit on the global opportunity chessboard. Every gap below is a first-mover position available right now.</p></div></div>
+  <div class="subh">SOIL TECHNOLOGY — FULVIC &amp; HUMIC INTELLIGENCE</div>
+  <div class="g3">
+    <div class="card cg"><div class="cst stg">$36.3B</div><div class="ch">Biostimulants Market by 2033</div><div class="cb2">Growing from $4.8B today at 22.4% CAGR. Fulvic/humic compounds = 44% by revenue. Peer-reviewed trials: 5–20% yield increases across major crops; 30% reduction in synthetic fertilizer need. CEC enhancement up to 400%; 200–500% water retention improvement in arid soils. <span class="tcg bold">Zero AI-powered precision application platforms exist at commercial scale globally.</span> This is the entire gap.</div></div>
+    <div class="card"><div class="cst stb">2–4</div><div class="ch">Growing Seasons to Restore Dead Soil</div><div class="cb2">Fulvic/humic compounds can restore biologically dead soils within 2–4 growing seasons. Chelates Fe, Zn, Mn, Cu into plant-available forms — direct cure for micronutrient deficiency affecting 2B+ people globally. Microbiome activation: feeds soil bacteria and fungi, restoring biological activity. No soil microbiome + humic acid correlation database at commercial scale exists anywhere on Earth.</div></div>
+    <div class="card cgld"><div class="cst stgld">$374M→$36B</div><div class="ch">Soil Carbon Credit Opportunity</div><div class="cb2">$374M soil carbon credit market growing toward $36B+ with no trusted AI-verified measurement system. No agri-commodity blockchain has post-quantum cryptography. Triple-market capture from one AI platform: $36B biostimulants + $24B precision ag + $374M carbon credits. First mover in AI-verified carbon measurement is the market maker, not a participant.</div></div>
+  </div>
+  <div class="subh mt8">AGRO-COMMODITY TOKENIZATION — THE BLOCKCHAIN OPPORTUNITY</div>
+  <div class="g2">
+    <div class="card ct"><div class="cst stb">$7.13B</div><div class="ch">Tokenized Agri-RWA Volume — Feb 2026</div><div class="cb2">4X growth from $1.9B (early 2025) in a single year. Gold-backed tokens validated the model: settlement costs reduced from 2–5% to &lt;0.5%. OECD/ARK projections: $110B by 2030, $1.4T by 2040. Coffee/cocoa tokens live (Sucafina, Touton). Grain warehouse receipts in pilot ($400M+ active in Ukraine, Brazil, India). Critical gap: <span class="tcr bold">Zero post-quantum security on any platform — existential vulnerability as quantum computing timelines accelerate to within this decade.</span></div></div>
+    <div class="card"><div class="cst">$90B+</div><div class="ch">Underinsured Agricultural Sector</div><div class="cb2">Parametric crop insurance AI — weather data → smart contract auto-payout engine — addresses a $90B+ gap in the food system. No comprehensive solution exists at scale. Smart contract automation + AI decisioning + fintech integration = the missing link in food system financing that makes smallholder farming commercially viable at scale. Timeline to deploy: 2027–2029.</div></div>
+  </div>
+  <div class="subh mt8">STRATEGIC OPPORTUNITY MATRIX — NIRMATA POSITIONING</div>
+  <div class="tw">
+    <table class="tbl">
+      <thead><tr><th>Opportunity</th><th>Market Size</th><th>Priority</th><th>Gap</th><th>Window</th></tr></thead>
+      <tbody>
+        <tr><td class="hl">AI Soil Health Platform (fulvic/humic AI)</td><td>$36B biostimulants + $24B precision ag</td><td><span class="tr">CRITICAL</span></td><td>No integrated AI soil intelligence platform globally</td><td>2026–2028</td></tr>
+        <tr><td class="hl">ATOM AgriTech AI Decision Engine</td><td>$4.9B AI in ag by 2030</td><td><span class="tr">CRITICAL</span></td><td>Fragmented tools — no unified intelligence layer</td><td>2026–2027</td></tr>
+        <tr><td class="hl">Agri-Commodity Tokenization (PQ-Secure)</td><td>$7B (2026) → $110B (2030)</td><td><span class="tg">HIGH</span></td><td>No quantum-secure agri-commodity blockchain standard</td><td>2026–2029</td></tr>
+        <tr><td class="hl">Parametric Crop Insurance AI</td><td>$90B+ underinsured sector</td><td><span class="tg">HIGH</span></td><td>Insurance missing link in food system financing</td><td>2027–2029</td></tr>
+        <tr><td class="hl">Vertical Farm AI OS</td><td>$8.2B → $41B (2034)</td><td><span class="tt">MEDIUM</span></td><td>No comprehensive vertical farm AI OS on market</td><td>2027–2030</td></tr>
+        <tr><td class="hl">Smallholder Farmer AI (Voice-First)</td><td>500M+ farms globally</td><td><span class="tp">STRATEGIC</span></td><td>Zero AI access for 80% of world's farmers</td><td>2028–2032</td></tr>
+        <tr><td class="hl">Carbon Credit Verification AI</td><td>$167M → $375M (2033)</td><td><span class="tp">STRATEGIC</span></td><td>No trusted AI-verified soil carbon measurement</td><td>2027–2031</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="subh mt8">EMERGING BLACK SWANS TO WATCH</div>
+  <div class="g3">
+    <div class="card cr"><div class="ci cir">💻</div><div class="ch">Cyber-Agriculture Warfare</div><div class="cb2">Smart farm hacking by state actors — irrigation, fertilization, harvest systems as cyberwar targets. A successful attack on a major agricultural AI platform could trigger cascading crop failures. Next WMD classification for asymmetric warfare: cheaper than a missile, deniable as a nation-state act, catastrophic in food security effect.</div></div>
+    <div class="card"><div class="ci ciw">🦠</div><div class="ch">Bioweapon Crop Engineering</div><div class="cb2">Gene-edited pathogens targeting specific crop varieties. One engineered pathogen released into a major crop's monoculture could collapse a food supply chain in a single growing season. Already classified as a WMD concern by multiple intelligence agencies. Defense requires genetic diversity by design — the opposite of what commodity agriculture currently practices.</div></div>
+    <div class="card cgld"><div class="ci cigld">📊</div><div class="ch">AI Monoculture Correlated Fragility</div><div class="cb2">If AI optimizes all farms identically, one adversarial data injection or climate shock wipes out global supply simultaneously. The same algorithms creating precision agriculture also create correlated systemic fragility at planetary scale. Diversity of AI recommendations is a survival mechanism — shapes ATOM's ensemble architecture requirement as a security feature.</div></div>
+  </div>
+</section>
+<footer class="ftr">
+  <div class="fi">
+    <div class="fbr"><div class="fl">⚡ NIRMATA HOLDINGS</div><div class="ft">Chief Quantum Officers. Building the next wave of AI, biotech, and sovereign infrastructure for the betterment of humankind. AntimatterAI · ThingkTangk HumanOS · RRG.bio · TryClinixAI · ATOM</div><div class="fm">AGRITECH INTEL BRIEFING V2.0 — 07.06.2026 — EYES ONLY — NIRMATA COMMAND</div></div>
+    <div class="fc">
+      <div><div class="fct">New Sections</div><ul class="fcl"><li><a onclick="go('societal')">Societal Pulse</a></li><li><a onclick="go('ecosystem')">Ecosystem Hub</a></li><li><a onclick="go('atom')">ATOM Layer</a></li><li><a onclick="go('phil')">First Principles</a></li></ul></div>
+      <div><div class="fct">Base Briefing</div><ul class="fcl"><li><a onclick="go('situational')">Situational Report</a></li><li><a onclick="go('matrix')">Intel Matrix</a></li></ul></div>
+      <div><div class="fct">Nirmata Portfolio</div><ul class="fcl"><li><a href="https://antimatterai.com" target="_blank" rel="noopener">AntimatterAI</a></li><li><a href="https://rrg.bio" target="_blank" rel="noopener">RRG.bio</a></li><li><a href="https://tryclinixai.com" target="_blank" rel="noopener">TryClinixAI</a></li></ul></div>
+    </div>
+  </div>
+</footer>
+</main>
+<script>
+(function(){var pf=document.getElementById('pf');if(!pf)return;window.addEventListener('scroll',function(){var st=window.scrollY,dh=document.documentElement.scrollHeight-window.innerHeight;pf.style.width=(dh>0?(st/dh)*100:0)+'%';},{passive:true});})();
+(function(){var btn=document.querySelector('[data-theme-toggle]'),root=document.documentElement,theme='dark';root.setAttribute('data-theme',theme);if(!btn)return;btn.addEventListener('click',function(){theme=theme==='dark'?'light':'dark';root.setAttribute('data-theme',theme);btn.innerHTML=theme==='dark'?'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>':'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';});})();
+function go(id){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
+(function(){var p=document.getElementById('sbp');if(!p)return;var fills=p.querySelectorAll('.sbf'),animated=false;var obs=new IntersectionObserver(function(entries){if(entries[0].isIntersecting&&!animated){animated=true;fills.forEach(function(f){var w=f.getAttribute('data-w')||'0%';setTimeout(function(){f.style.width=w;},200);});}},{threshold:0.3});obs.observe(p);})();
+function tQ(hdr){var sec=hdr.closest('.ph');sec.classList.toggle('open');}
+(function(){var ids=['societal','ecosystem','atom','phil','situational','matrix'];var links=document.querySelectorAll('.nv');var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var idx=ids.indexOf(e.target.id);links.forEach(function(l){l.classList.remove('act');});if(idx>=0&&links[idx])links[idx].classList.add('act');}});},{threshold:0.25,rootMargin:'-60px 0px 0px 0px'});ids.forEach(function(id){var el=document.getElementById(id);if(el)obs.observe(el);});})();
+</script>
+</body>
+</html>
