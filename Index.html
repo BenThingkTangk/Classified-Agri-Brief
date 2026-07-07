@@ -29,12 +29,12 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:62px}
-body{font-family:var(--fb);font-size:clamp(.9rem,.85rem + .2vw,1rem);color:var(--tx);background:var(--s0);line-height:1.65;min-height:100dvh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:var(--fb);font-size:clamp(.9rem,.85rem + .2vw,1rem);color:var(--tx);background:var(--s0);line-height:1.65;min-height:100vh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img,svg{display:block;max-width:100%}
 button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 a{color:inherit;text-decoration:none}
-h1,h2,h3,h4,h5,h6{font-family:var(--fm);line-height:1.15;text-wrap:balance}
-p,li{max-width:70ch;text-wrap:pretty}
+h1,h2,h3,h4,h5,h6{font-family:var(--fm);line-height:1.15}
+p,li{max-width:70ch}
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-track{background:var(--s0)}
 ::-webkit-scrollbar-thumb{background:var(--s5);border-radius:var(--rp)}
@@ -57,7 +57,7 @@ p,li{max-width:70ch;text-wrap:pretty}
 .logo-text{font-family:var(--fm);font-size:.8rem;font-weight:700;letter-spacing:.18em;line-height:1}
 .logo-text .o{color:var(--ac)}
 .logo-sub{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--txm);font-family:var(--fm)}
-nav{display:flex;gap:2px;list-style:none;flex:1;overflow:hidden}
+nav ul{display:flex;gap:2px;list-style:none;flex:1;overflow:hidden;margin:0;padding:0}
 .nv{font-family:var(--fm);font-size:.58rem;letter-spacing:.09em;text-transform:uppercase;padding:.35rem .65rem;border-radius:var(--r1);color:var(--txm);transition:all var(--ef);cursor:pointer;white-space:nowrap}
 .nv:hover{color:var(--ac);background:var(--ac-glow)}
 .nv.act{color:var(--ac);background:var(--ac-dim)}
@@ -119,7 +119,7 @@ nav{display:flex;gap:2px;list-style:none;flex:1;overflow:hidden}
 .mt8{margin-top:2rem}
 .mt12{margin-top:3rem}
 
-/* PILLS / BADGES */
+/* PILLS */
 .pill{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--fm);font-size:.54rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:3px .65rem;border-radius:var(--rp)}
 .pill-red{color:var(--red);background:var(--redd);border:1px solid rgba(255,77,77,.25)}
 .pill-warn{color:var(--warn);background:var(--warnd);border:1px solid rgba(255,154,0,.25)}
@@ -149,7 +149,7 @@ nav{display:flex;gap:2px;list-style:none;flex:1;overflow:hidden}
 .threat-table tr:hover td{background:var(--ac-glow);color:var(--tx)}
 .threat-table td:first-child{font-family:var(--fm);font-weight:600;color:var(--tx);white-space:nowrap}
 
-/* TIMELINE / PHASE */
+/* TIMELINE */
 .phase-list{display:flex;flex-direction:column;gap:0}
 .phase{display:grid;grid-template-columns:56px 1fr;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid rgba(45,212,212,.06);position:relative}
 .phase:last-child{border-bottom:none}
@@ -157,25 +157,26 @@ nav{display:flex;gap:2px;list-style:none;flex:1;overflow:hidden}
 .phase-title{font-family:var(--fm);font-size:.88rem;font-weight:700;color:var(--tx);margin-bottom:.35rem}
 .phase-body{font-size:.85rem;color:var(--txm);line-height:1.7}
 
-/* ACCORDION (philosophy) */
+/* ACCORDION */
 .acc{border:1px solid rgba(45,212,212,.08);border-radius:var(--r2);overflow:hidden;margin-bottom:.5rem;background:var(--s2)}
-.acc-head{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.4rem;cursor:pointer;transition:background var(--ef);gap:1rem}
+.acc-head{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.4rem;cursor:pointer;transition:background var(--ef);gap:1rem;list-style:none;-webkit-appearance:none}
+.acc-head::-webkit-details-marker{display:none}
 .acc-head:hover{background:var(--ac-glow)}
 .acc-phase{font-family:var(--fm);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);flex-shrink:0;min-width:60px}
 .acc-q{font-family:var(--fm);font-size:.82rem;font-weight:600;color:var(--tx);flex:1}
 .acc-arrow{flex-shrink:0;color:var(--ac);transition:transform var(--em);font-size:.7rem;font-family:var(--fm)}
-.acc[open] .acc-arrow{transform:rotate(90deg)}
+details[open] .acc-arrow{transform:rotate(90deg)}
 .acc-body{padding:0 1.4rem 1.2rem;border-top:1px solid rgba(45,212,212,.07);background:var(--s3)}
 .acc-body p{font-size:.85rem;color:var(--txm);line-height:1.75;padding-top:1rem}
 
-/* PROGRESS BARS (awareness metrics) */
+/* PROGRESS BARS */
 .aware-row{display:grid;grid-template-columns:1fr 56px;align-items:center;gap:1rem;margin-bottom:.85rem}
 .aware-label{font-family:var(--fm);font-size:.65rem;letter-spacing:.06em;color:var(--txm)}
 .aware-bar{height:3px;background:rgba(255,255,255,.06);border-radius:var(--rp);overflow:hidden;margin-top:.3rem;grid-column:1/-1}
 .aware-fill{height:100%;border-radius:var(--rp);background:linear-gradient(90deg,var(--ac),rgba(45,212,212,.4));width:0;transition:width 1.4s var(--ease)}
 .aware-pct{font-family:var(--fm);font-size:.72rem;font-weight:700;color:var(--ac);text-align:right}
 
-/* ECOSYSTEM NODE MAP */
+/* NODE GRID */
 .node-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:.75rem;margin-top:1.5rem}
 .node{background:var(--s3);border:1px solid rgba(45,212,212,.08);border-radius:var(--r2);padding:1.1rem;transition:all var(--em)}
 .node:hover{border-color:var(--ac-border);background:var(--s4);transform:translateY(-2px)}
@@ -183,7 +184,7 @@ nav{display:flex;gap:2px;list-style:none;flex:1;overflow:hidden}
 .node-title{font-family:var(--fm);font-size:.7rem;font-weight:700;letter-spacing:.07em;color:var(--tx);margin-bottom:.3rem}
 .node-desc{font-size:.78rem;color:var(--txm);line-height:1.55}
 
-/* ATOM LAYER DIAGRAM */
+/* LAYER STACK */
 .layer-stack{display:flex;flex-direction:column;gap:0;border:1px solid rgba(45,212,212,.1);border-radius:var(--r3);overflow:hidden;margin-top:1.5rem}
 .layer{display:flex;align-items:center;gap:1.5rem;padding:1rem 1.5rem;border-bottom:1px solid rgba(45,212,212,.06);transition:background var(--ef)}
 .layer:hover{background:var(--ac-glow)}
@@ -193,7 +194,7 @@ nav{display:flex;gap:2px;list-style:none;flex:1;overflow:hidden}
 .layer-desc{font-size:.82rem;color:var(--txm);flex:1;line-height:1.55}
 .layer-tag{font-family:var(--fm);font-size:.52rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:2px .55rem;border-radius:var(--rp);flex-shrink:0;margin-left:auto}
 
-/* ADOPTION CURVE SVG */
+/* CURVE */
 .curve-wrap{background:var(--s2);border:1px solid rgba(45,212,212,.08);border-radius:var(--r2);padding:1.5rem;margin-top:1.5rem;overflow:hidden}
 
 /* FOOTER */
@@ -207,7 +208,7 @@ footer{padding:3rem 1.5rem 4rem;border-top:1px solid rgba(45,212,212,.07)}
 /* RESPONSIVE */
 @media(max-width:768px){
   .hi{padding:0 1rem}
-  nav{display:none}
+  nav ul{display:none}
   .hero{padding:5rem 1rem 3rem}
   .hero-mark{display:none}
   .sec{padding:3.5rem 1rem}
@@ -238,13 +239,15 @@ footer{padding:3rem 1.5rem 4rem;border-top:1px solid rgba(45,212,212,.07)}
         <div class="logo-sub">AgriTech Intel Command</div>
       </div>
     </a>
-    <nav role="list">
-      <li class="nv act" onclick="scrollTo('societal')">Societal Pulse</li>
-      <li class="nv" onclick="scrollTo('ecosystem')">Ecosystem Hub</li>
-      <li class="nv" onclick="scrollTo('atom-sec')">ATOM Layer</li>
-      <li class="nv" onclick="scrollTo('phil')">Philosophy</li>
-      <li class="nv" onclick="scrollTo('base')">Base Intel</li>
-      <li class="nv" onclick="scrollTo('matrix')">Opportunity Matrix</li>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li class="nv act" onclick="scrollToSection('societal')">Societal Pulse</li>
+        <li class="nv" onclick="scrollToSection('ecosystem')">Ecosystem Hub</li>
+        <li class="nv" onclick="scrollToSection('atom-sec')">ATOM Layer</li>
+        <li class="nv" onclick="scrollToSection('phil')">Philosophy</li>
+        <li class="nv" onclick="scrollToSection('base')">Base Intel</li>
+        <li class="nv" onclick="scrollToSection('matrix')">Opportunity Matrix</li>
+      </ul>
     </nav>
     <div class="hdr-right">
       <div class="pill-live pill">CRISIS ACTIVE</div>
@@ -253,7 +256,8 @@ footer{padding:3rem 1.5rem 4rem;border-top:1px solid rgba(45,212,212,.07)}
 </header>
 
 <main id="top">
-<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+
+<!-- HERO -->
 <section class="hero">
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-orb" aria-hidden="true"></div>
@@ -283,7 +287,7 @@ footer{padding:3rem 1.5rem 4rem;border-top:1px solid rgba(45,212,212,.07)}
   </div>
 </section>
 
-<!-- ══════════════════════ SECTION 1 — SOCIETAL PULSE ══════════════════ -->
+<!-- SECTION 1 — SOCIETAL PULSE -->
 <section class="sec" id="societal">
 <div class="sec-inner">
   <div class="sec-eyebrow"><span class="sec-num">01</span><span class="sec-label">Societal Pulse · New Section</span></div>
@@ -408,7 +412,7 @@ footer{padding:3rem 1.5rem 4rem;border-top:1px solid rgba(45,212,212,.07)}
 </div>
 </section>
 
-<!-- ══════════════════════ SECTION 2 — ECOSYSTEM HUB ══════════════════ -->
+<!-- SECTION 2 — ECOSYSTEM HUB -->
 <section class="sec" id="ecosystem">
 <div class="sec-inner">
   <div class="sec-eyebrow"><span class="sec-num">02</span><span class="sec-label">Ecosystem Hub · New Section</span></div>
@@ -430,41 +434,13 @@ footer{padding:3rem 1.5rem 4rem;border-top:1px solid rgba(45,212,212,.07)}
 
   <h3 class="card-title" style="font-size:.88rem;letter-spacing:.06em;color:var(--txm)">THE 7-NODE ECOSYSTEM ARCHITECTURE</h3>
   <div class="node-grid">
-    <div class="node">
-      <div class="node-icon">⬡</div>
-      <div class="node-title">Core AI Intelligence (ATOM)</div>
-      <div class="node-desc">Central orchestration layer. Ingests all ecosystem signals. Routes intelligence. Maintains sovereign data ownership per node. The Manhattan Project director equivalent.</div>
-    </div>
-    <div class="node">
-      <div class="node-icon">⬡</div>
-      <div class="node-title">Biotech + Soil Science Node</div>
-      <div class="node-desc">Regenerative soil researchers, microbiome scientists, precision fermentation labs. Provides the biological intelligence that AI cannot generate without ground truth.</div>
-    </div>
-    <div class="node">
-      <div class="node-icon">⬡</div>
-      <div class="node-title">Sovereign State Partners</div>
-      <div class="node-desc">Allied governments, USDA, EU agricultural agencies, Global South agricultural ministries. Provides legal cover, distribution infrastructure, and political legitimacy.</div>
-    </div>
-    <div class="node">
-      <div class="node-icon">⬡</div>
-      <div class="node-title">Geopolitical Data + Intel</div>
-      <div class="node-desc">Supply chain intelligence firms, commodity market analysts, sanctions and trade policy monitors. Provides the threat context ATOM uses to make recommendations actionable.</div>
-    </div>
-    <div class="node">
-      <div class="node-icon">⬡</div>
-      <div class="node-title">Quantum Security Layer</div>
-      <div class="node-desc">Post-quantum cryptography applied to the ecosystem's data backbone. Ensures state-actor adversaries cannot intercept, corrupt, or reverse-engineer the intelligence layer.</div>
-    </div>
-    <div class="node">
-      <div class="node-icon">⬡</div>
-      <div class="node-title">Field Networks + IoT</div>
-      <div class="node-desc">Sensor networks, satellite imagery processors, precision agriculture hardware vendors. Ground-truth data layer that prevents spoofing of synthetic or state-manipulated datasets.</div>
-    </div>
-    <div class="node">
-      <div class="node-icon">⬡</div>
-      <div class="node-title">Capital + Impact Finance</div>
-      <div class="node-desc">Impact investors, food security funds, sovereign wealth exposure, ESG capital. Provides deployment capital without creating investor capture that a cartel could exploit.</div>
-    </div>
+    <div class="node"><div class="node-icon">⬡</div><div class="node-title">Core AI Intelligence (ATOM)</div><div class="node-desc">Central orchestration layer. Ingests all ecosystem signals. Routes intelligence. Maintains sovereign data ownership per node. The Manhattan Project director equivalent.</div></div>
+    <div class="node"><div class="node-icon">⬡</div><div class="node-title">Biotech + Soil Science Node</div><div class="node-desc">Regenerative soil researchers, microbiome scientists, precision fermentation labs. Provides the biological intelligence that AI cannot generate without ground truth.</div></div>
+    <div class="node"><div class="node-icon">⬡</div><div class="node-title">Sovereign State Partners</div><div class="node-desc">Allied governments, USDA, EU agricultural agencies, Global South agricultural ministries. Provides legal cover, distribution infrastructure, and political legitimacy.</div></div>
+    <div class="node"><div class="node-icon">⬡</div><div class="node-title">Geopolitical Data + Intel</div><div class="node-desc">Supply chain intelligence firms, commodity market analysts, sanctions and trade policy monitors. Provides the threat context ATOM uses to make recommendations actionable.</div></div>
+    <div class="node"><div class="node-icon">⬡</div><div class="node-title">Quantum Security Layer</div><div class="node-desc">Post-quantum cryptography applied to the ecosystem's data backbone. Ensures state-actor adversaries cannot intercept, corrupt, or reverse-engineer the intelligence layer.</div></div>
+    <div class="node"><div class="node-icon">⬡</div><div class="node-title">Field Networks + IoT</div><div class="node-desc">Sensor networks, satellite imagery processors, precision agriculture hardware vendors. Ground-truth data layer that prevents spoofing of synthetic or state-manipulated datasets.</div></div>
+    <div class="node"><div class="node-icon">⬡</div><div class="node-title">Capital + Impact Finance</div><div class="node-desc">Impact investors, food security funds, sovereign wealth exposure, ESG capital. Provides deployment capital without creating investor capture that a cartel could exploit.</div></div>
   </div>
 
   <div class="div"></div>
@@ -488,7 +464,7 @@ footer{padding:3rem 1.5rem 4rem;border-top:1px solid rgba(45,212,212,.07)}
           <div class="phase-title">Beachhead Establishment</div>
           <span class="pill pill-cyan">Q1 → Q3 2027</span>
         </div>
-        <div class="phase-body">Expand to 15–20 ecosystem partners across 3+ sovereign jurisdictions. Achieve one landmark public partnership (USDA, EU, major university system). Begin active intelligence sharing across nodes. Publish first joint threat assessment. Establish the ecosystem as the authoritative source on food security intelligence — make ATOM the Reuters of ag security.</div>
+        <div class="phase-body">Expand to 15–20 ecosystem partners across 3+ sovereign jurisdictions. Achieve one landmark public partnership (USDA, EU, major university system). Begin active intelligence sharing across nodes. Publish first joint threat assessment. Establish the ecosystem as the authoritative source on food security intelligence.</div>
       </div>
     </div>
     <div class="phase">
@@ -498,7 +474,7 @@ footer{padding:3rem 1.5rem 4rem;border-top:1px solid rgba(45,212,212,.07)}
           <div class="phase-title">Chasm Crossing</div>
           <span class="pill pill-ok">Q4 2027 → 2028</span>
         </div>
-        <div class="phase-body">Cross Geoffrey Moore's chasm. Deploy to early majority partners: mid-size agricultural enterprises, regional food systems, national ag ministries. Scale ATOM's MCP integration across 50+ existing AgriAI systems. Demonstrate that ecosystem participants outcompete non-participants on yield, resilience, and threat response — making non-participation economically irrational.</div>
+        <div class="phase-body">Cross Geoffrey Moore's chasm. Deploy to early majority partners: mid-size agricultural enterprises, regional food systems, national ag ministries. Scale ATOM's MCP integration across 50+ existing AgriAI systems. Demonstrate that ecosystem participants outcompete non-participants on yield, resilience, and threat response.</div>
       </div>
     </div>
     <div class="phase">
@@ -508,19 +484,19 @@ footer{padding:3rem 1.5rem 4rem;border-top:1px solid rgba(45,212,212,.07)}
           <div class="phase-title">Fortress Mode</div>
           <span class="pill pill-pur">2029 → 2030</span>
         </div>
-        <div class="phase-body">Achieve structural irreversibility. Ecosystem is too distributed to suppress. ATOM is embedded in enough national food systems that cartel control of the global food supply becomes structurally blocked. Transition from crisis-response to long-term governance infrastructure. The goal: make cartel formation a 2% probability scenario by making ATOM the default operating system of global agricultural intelligence.</div>
+        <div class="phase-body">Achieve structural irreversibility. Ecosystem is too distributed to suppress. ATOM is embedded in enough national food systems that cartel control of the global food supply becomes structurally blocked. Transition from crisis-response to long-term governance infrastructure.</div>
       </div>
     </div>
   </div>
 </div>
 </section>
 
-<!-- ══════════════════════ SECTION 3 — ATOM LAYER ════════════════════ -->
+<!-- SECTION 3 — ATOM LAYER -->
 <section class="sec" id="atom-sec">
 <div class="sec-inner">
   <div class="sec-eyebrow"><span class="sec-num">03</span><span class="sec-label">ATOM Intelligence Layer · New Section</span></div>
   <h2 class="sec-title">ATOM as Universal AgriTech Intelligence Layer: Don't Rip — Supercharge</h2>
-  <p class="sec-sub">There are hundreds of AgriAI systems in deployment: crop monitoring, pest detection, soil analytics, yield prediction, supply chain optimization. The adoption barrier for any new solution is the rip-and-replace cost. ATOM's strategic position: <strong style="color:var(--ac)">sit above all of them as the intelligence orchestration layer</strong>, making every existing system smarter without requiring replacement.</p>
+  <p class="sec-sub">There are hundreds of AgriAI systems in deployment. The adoption barrier for any new solution is the rip-and-replace cost. ATOM's strategic position: <strong style="color:var(--ac)">sit above all of them as the intelligence orchestration layer</strong>, making every existing system smarter without requiring replacement.</p>
 
   <div class="stat-grid">
     <div class="stat"><div class="stat-val cyan">97M</div><div class="stat-desc">Monthly MCP SDK downloads — the protocol ATOM builds on (Dec 2025 Linux Foundation donation)</div></div>
@@ -531,7 +507,7 @@ footer{padding:3rem 1.5rem 4rem;border-top:1px solid rgba(45,212,212,.07)}
 
   <div class="div"></div>
 
-  <h3 class="card-title" style="font-size:.88rem;letter-spacing:.06em;color:var(--txm)">THE ATOM STACK — HOW IT SITS ABOVE EXISTING AGRITECH AI</h3>
+  <h3 class="card-title" style="font-size:.88rem;letter-spacing:.06em;color:var(--txm)">THE ATOM STACK</h3>
   <div class="layer-stack">
     <div class="layer">
       <div class="layer-dot" style="background:var(--ac)"></div>
@@ -561,33 +537,33 @@ footer{padding:3rem 1.5rem 4rem;border-top:1px solid rgba(45,212,212,.07)}
 
   <div class="div"></div>
 
-  <h3 class="card-title" style="font-size:.88rem;letter-spacing:.06em;color:var(--txm)">ATOM'S 4 STRATEGIC MOATS — WHAT COMPETITORS CANNOT REPLICATE</h3>
+  <h3 class="card-title" style="font-size:.88rem;letter-spacing:.06em;color:var(--txm)">ATOM'S 4 STRATEGIC MOATS</h3>
   <div class="grid2 mt4">
     <div class="card">
       <span class="pill pill-cyan" style="margin-bottom:.75rem;display:inline-flex">Moat 01</span>
       <div class="card-title">Quantum-Secured Intelligence Backbone</div>
-      <div class="card-body">Post-quantum cryptography applied to the entire data layer. State actors with quantum computing capabilities — specifically China and Russia — cannot decrypt ATOM's intelligence flows. This is the defense that no commercial AgriAI system currently has, and it is the reason state-actor interference cannot systematically corrupt ATOM's outputs.</div>
+      <div class="card-body">Post-quantum cryptography applied to the entire data layer. State actors with quantum computing capabilities cannot decrypt ATOM's intelligence flows. This is the defense that no commercial AgriAI system currently has.</div>
     </div>
     <div class="card">
       <span class="pill pill-ok" style="margin-bottom:.75rem;display:inline-flex">Moat 02</span>
       <div class="card-title">Geopolitical Intel Fusion</div>
-      <div class="card-body">Crop monitoring AI knows when a field is stressed. ATOM knows why — trade sanctions, harvest manipulation, supply chain weaponization, or state-actor market moves. The fusion of agronomic data with geopolitical intelligence is a layer no purely agricultural AI company can build without being in the intelligence business. ATOM is both.</div>
+      <div class="card-body">Crop monitoring AI knows when a field is stressed. ATOM knows why — trade sanctions, harvest manipulation, supply chain weaponization, or state-actor market moves. The fusion of agronomic data with geopolitical intelligence is a layer no purely agricultural AI company can build without being in the intelligence business.</div>
     </div>
     <div class="card">
       <span class="pill pill-gold" style="margin-bottom:.75rem;display:inline-flex">Moat 03</span>
       <div class="card-title">Smallholder Voice AI</div>
-      <div class="card-body">2 billion smallholder farmers globally represent the most data-dark zone in food security. ATOM's voice-first AI interface, operable on feature phones with intermittent connectivity, reaches the farmer population that all enterprise AgriAI ignores. This is the distribution moat: data richness from the bottom of the supply chain that competitors structurally cannot access.</div>
+      <div class="card-body">2 billion smallholder farmers globally represent the most data-dark zone in food security. ATOM's voice-first AI interface, operable on feature phones with intermittent connectivity, reaches the farmer population that all enterprise AgriAI ignores.</div>
     </div>
     <div class="card">
       <span class="pill pill-pur" style="margin-bottom:.75rem;display:inline-flex">Moat 04</span>
       <div class="card-title">Carbon + Blockchain Unification</div>
-      <div class="card-body">Regenerative agriculture requires carbon accounting. ATOM unifies soil carbon measurement, blockchain-anchored credit issuance, and market price feeds into a single audit trail. This creates a financial incentive layer for ecosystem participation — farmers earn carbon credits, investors get verified asset-backed positions, and ATOM becomes the trusted ledger of the regenerative agriculture economy.</div>
+      <div class="card-body">Regenerative agriculture requires carbon accounting. ATOM unifies soil carbon measurement, blockchain-anchored credit issuance, and market price feeds into a single audit trail — creating a financial incentive layer for ecosystem participation.</div>
     </div>
   </div>
 
   <div class="div"></div>
 
-  <h3 class="card-title" style="font-size:.88rem;letter-spacing:.06em;color:var(--txm)">DEFENSIVE ARCHITECTURE — PROTECTING THE SOLUTION FROM ADVERSARIAL ATTACK</h3>
+  <h3 class="card-title" style="font-size:.88rem;letter-spacing:.06em;color:var(--txm)">DEFENSIVE ARCHITECTURE</h3>
   <div class="grid3 mt4">
     <div class="card">
       <div class="card-title">Federated Architecture</div>
@@ -595,98 +571,99 @@ footer{padding:3rem 1.5rem 4rem;border-top:1px solid rgba(45,212,212,.07)}
     </div>
     <div class="card">
       <div class="card-title">Ensemble AI Diversity</div>
-      <div class="card-body">ATOM orchestrates multiple competing AI models. Adversarial attacks that corrupt one model's outputs are detected by divergence from the ensemble. This is the AI equivalent of using multiple independent witnesses — one can be compromised, all cannot.</div>
+      <div class="card-body">ATOM orchestrates multiple competing AI models. Adversarial attacks that corrupt one model's outputs are detected by divergence from the ensemble — the AI equivalent of using multiple independent witnesses.</div>
     </div>
     <div class="card">
       <div class="card-title">Farmer-Owned Data Sovereignty</div>
-      <div class="card-body">Each farmer owns their data. ATOM accesses aggregated anonymized intelligence, not individual farm data. This prevents a single legal or regulatory action from triggering mass data loss, and aligns ATOM's incentives with farmer trust rather than extractive data monetization.</div>
+      <div class="card-body">Each farmer owns their data. ATOM accesses aggregated anonymized intelligence, not individual farm data. This prevents a single legal or regulatory action from triggering mass data loss.</div>
     </div>
   </div>
 </div>
 </section>
 
-<!-- ══════════════════════ SECTION 4 — PHILOSOPHY ════════════════════ -->
+<!-- SECTION 4 — PHILOSOPHY -->
 <section class="sec" id="phil">
 <div class="sec-inner">
   <div class="sec-eyebrow"><span class="sec-num">04</span><span class="sec-label">Philosophical Compass · New Section</span></div>
   <h2 class="sec-title">The Philosophical Compass: Questions That Must Be Answered Before Each Phase</h2>
-  <p class="sec-sub">First-principles philosophy is not abstract. It is the most practical tool available for avoiding over-engineering, analysis paralysis, and strategic drift. Each question below, when answered honestly, <strong style="color:var(--ac)">unlocks the simplest correct path</strong> through the phase it belongs to. You cannot engineer a solution to a question you haven't asked. Answer the philosophy first; the solutions follow logically.</p>
+  <p class="sec-sub">First-principles philosophy is not abstract. It is the most practical tool available for avoiding over-engineering, analysis paralysis, and strategic drift. Each question below, when answered honestly, <strong style="color:var(--ac)">unlocks the simplest correct path</strong> through the phase it belongs to.</p>
 
   <div class="card mt4" style="border-color:rgba(45,212,212,.18)">
     <div class="card-title">The Anti-Paralysis Protocol — Read This First</div>
     <div class="card-body" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:1rem;margin-top:.75rem">
       <div><span class="pill pill-red" style="margin-bottom:.4rem;display:inline-flex">Elon's Rule</span><br>Delete the requirement before optimizing it. Before solving any sub-problem, ask: "Can we eliminate this problem entirely?" 90% of complexity comes from requirements that don't need to exist.</div>
       <div><span class="pill pill-warn" style="margin-bottom:.4rem;display:inline-flex">Opportunity Cost</span><br>The cost of not acting is not zero. Every month of planning is a month of the deployment window closing. The worst outcome is a perfect plan deployed 18 months too late.</div>
-      <div><span class="pill pill-ok" style="margin-bottom:.4rem;display:inline-flex">48-Hour Experiment</span><br>No planning cycle longer than 48 hours before a real-world test. A small real test beats a large theoretical plan every time. Build the minimum thing that proves or disproves the core assumption.</div>
+      <div><span class="pill pill-ok" style="margin-bottom:.4rem;display:inline-flex">48-Hour Experiment</span><br>No planning cycle longer than 48 hours before a real-world test. A small real test beats a large theoretical plan every time.</div>
     </div>
   </div>
 
   <div class="mt8">
     <h3 class="card-title" style="font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem">PHASE 0 — FOUNDATION</h3>
+
     <details class="acc">
       <summary class="acc-head"><span class="acc-phase">Phase 0</span><span class="acc-q">What is the single sentence that explains why this mission exists?</span><span class="acc-arrow">▶</span></summary>
-      <div class="acc-body"><p>Before any technology, any pitch deck, any partnership: distill the entire mission to one sentence that a farmer in Kansas and a finance minister in Nigeria both understand immediately. If you cannot do this, you do not yet understand the problem deeply enough. First-principles: what is the irreducible truth of what you are doing? "We prevent state actors from using food as a weapon by building the intelligence layer that makes food systems legible to the world." Test every decision against this sentence — if it doesn't serve it, delete it.</p></div>
+      <div class="acc-body"><p>Before any technology, any pitch deck, any partnership: distill the entire mission to one sentence that a farmer in Kansas and a finance minister in Nigeria both understand immediately. "We prevent state actors from using food as a weapon by building the intelligence layer that makes food systems legible to the world." Test every decision against this sentence — if it doesn't serve it, delete it.</p></div>
     </details>
     <details class="acc">
       <summary class="acc-head"><span class="acc-phase">Phase 0</span><span class="acc-q">Do we have the moral authority to lead this mission, or must we earn it first?</span><span class="acc-arrow">▶</span></summary>
-      <div class="acc-body"><p>Moral authority in food security comes from demonstrated alignment with the people most at risk: smallholder farmers, food-insecure populations, not just governments and investors. Before deploying to the world, Nirmata must answer: have we meaningfully engaged the people at the bottom of the food chain? If we launch as a technology solution serving governments and enterprises without farmer validation, we become another top-down intervention that fails at adoption. Earn the moral authority by building it from the ground up.</p></div>
+      <div class="acc-body"><p>Moral authority in food security comes from demonstrated alignment with the people most at risk: smallholder farmers, food-insecure populations, not just governments and investors. Before deploying to the world, Nirmata must answer: have we meaningfully engaged the people at the bottom of the food chain?</p></div>
     </details>
     <details class="acc">
       <summary class="acc-head"><span class="acc-phase">Phase 0</span><span class="acc-q">Why would a rational state actor not simply build their own version of this?</span><span class="acc-arrow">▶</span></summary>
-      <div class="acc-body"><p>Friendly governments (US, EU, allied nations) could attempt to build this themselves. The honest first-principles answer to why they won't: bureaucratic timelines (5–10 year procurement cycles vs. 18-month deployment window), lack of AI talent at speed, and political fragmentation across agencies. But the deeper question is: are we building something governments want built, or something they want to control? If the latter, we will be bought out or regulated into obsolescence. The answer must be: we build the neutral infrastructure that no single government can own, making it safer for all governments to use than to replicate.</p></div>
+      <div class="acc-body"><p>Friendly governments could attempt to build this themselves. The honest answer: bureaucratic timelines (5–10 year procurement cycles vs. 18-month deployment window), lack of AI talent at speed, and political fragmentation across agencies. The answer must be: we build the neutral infrastructure that no single government can own, making it safer for all governments to use than to replicate.</p></div>
     </details>
 
     <h3 class="card-title" style="font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;margin-top:2rem">PHASE 1 — ADOPTION</h3>
     <details class="acc">
       <summary class="acc-head"><span class="acc-phase">Phase 1</span><span class="acc-q">What is the minimum viable proof that changes a skeptic into an advocate?</span><span class="acc-arrow">▶</span></summary>
-      <div class="acc-body"><p>Not a demo. Not a white paper. One real-world result, in one region, with one measurable outcome — e.g., ATOM detected a supply chain disruption 6 weeks before market prices reflected it, and a partner made a decision that saved X tons of food or $Y in supply cost. The first adopter case study is the only currency that matters in Phase 1. Everything else is marketing. First-principles: what is the single smallest thing that proves the thesis beyond reasonable doubt?</p></div>
+      <div class="acc-body"><p>Not a demo. Not a white paper. One real-world result, in one region, with one measurable outcome — e.g., ATOM detected a supply chain disruption 6 weeks before market prices reflected it. The first adopter case study is the only currency that matters in Phase 1.</p></div>
     </details>
     <details class="acc">
       <summary class="acc-head"><span class="acc-phase">Phase 1</span><span class="acc-q">Is our solution solving the problem, or the symptom of the problem?</span><span class="acc-arrow">▶</span></summary>
-      <div class="acc-body"><p>Symptom: crop yield is declining → Solution: better fertilizer AI. Root cause: soil degradation + water table collapse from industrial monoculture + commodity market manipulation by state actors. ATOM must be anchored at the root cause level, or it becomes one more optimization layer on top of a structurally failing system. The test: if ATOM succeeded perfectly at its current definition, would the food war still happen? If yes, the definition needs revision. First-principles: trace the problem to its irreducible cause and solve that, not its downstream manifestation.</p></div>
+      <div class="acc-body"><p>Symptom: crop yield is declining → Solution: better fertilizer AI. Root cause: soil degradation + water table collapse from industrial monoculture + commodity market manipulation by state actors. ATOM must be anchored at the root cause level, or it becomes one more optimization layer on top of a structurally failing system.</p></div>
     </details>
     <details class="acc">
       <summary class="acc-head"><span class="acc-phase">Phase 1</span><span class="acc-q">Should our architecture be reversible? What is the cost of being wrong?</span><span class="acc-arrow">▶</span></summary>
-      <div class="acc-body"><p>Every architectural choice should be evaluated for reversibility. A farmer data ownership model is hard to reverse once established — but so is a centralized data extraction model that violates farmer trust. The question: which irreversibilities do we choose, and which do we avoid? Build reversibility into everything that touches governance and data. Build irreversibility into everything that creates network effects and ecosystem lock-in for the mission. Being wrong on a reversible decision costs a pivot. Being wrong on an irreversible one can end the initiative.</p></div>
+      <div class="acc-body"><p>Every architectural choice should be evaluated for reversibility. Build reversibility into everything that touches governance and data. Build irreversibility into everything that creates network effects and ecosystem lock-in for the mission.</p></div>
     </details>
 
     <h3 class="card-title" style="font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;margin-top:2rem">PHASE 2 — CHASM CROSSING</h3>
     <details class="acc">
       <summary class="acc-head"><span class="acc-phase">Phase 2</span><span class="acc-q">What are the constitutional guardrails we will not cross, even for scale?</span><span class="acc-arrow">▶</span></summary>
-      <div class="acc-body"><p>Scale creates pressure to compromise. Enterprise customers will ask for exclusive data arrangements. Governments will ask for surveillance capabilities. Large investors will push for margin optimization over mission alignment. The philosophical work of Phase 2 is writing the constitution before the power exists — because once power exists, the constitution is always harder to enforce. Define now: what will ATOM never do, regardless of the financial or political upside? Farmer data sovereignty, no weaponized intelligence use, no exclusive cartel arrangements. Write it, ratify it within the ecosystem, make it public.</p></div>
+      <div class="acc-body"><p>Scale creates pressure to compromise. Enterprise customers will ask for exclusive data arrangements. Governments will ask for surveillance capabilities. Define now: what will ATOM never do? Farmer data sovereignty, no weaponized intelligence use, no exclusive cartel arrangements. Write it, ratify it within the ecosystem, make it public.</p></div>
     </details>
     <details class="acc">
       <summary class="acc-head"><span class="acc-phase">Phase 2</span><span class="acc-q">Are we democratizing food security, or creating a new dependency?</span><span class="acc-arrow">▶</span></summary>
-      <div class="acc-body"><p>The most insidious failure mode: we solve the FARMPEC cartel dependency by creating an ATOM dependency. A farmer who cannot grow food without ATOM's AI is not food-sovereign — they are ATOM-dependent. The philosophical test: does our solution build local capacity or extract it? Every ATOM deployment must include a local-capability component — training, open data standards, interoperable protocols — that ensures the community could function at reduced capability if ATOM disappeared. The mission is food sovereignty, not ATOM adoption.</p></div>
+      <div class="acc-body"><p>The most insidious failure mode: we solve the FARMPEC cartel dependency by creating an ATOM dependency. Every ATOM deployment must include a local-capability component — training, open data standards, interoperable protocols — that ensures the community could function at reduced capability if ATOM disappeared.</p></div>
     </details>
     <details class="acc">
       <summary class="acc-head"><span class="acc-phase">Phase 2</span><span class="acc-q">How do we communicate a complex geopolitical crisis without being dismissed as alarmists?</span><span class="acc-arrow">▶</span></summary>
-      <div class="acc-body"><p>The pragmatist majority — the chasm crossing audience — buys on proven outcomes, not threat narratives. They do not want to hear about FARMPEC cartels and food wars. They want to hear: "Our partner in Iowa increased resilience yield 18% and reduced input cost 22% using ATOM intelligence." The philosophical principle: let the data make the case for urgency; let the outcomes make the case for adoption. Lead with results for the pragmatist; the ideological threat frame is for innovators and early adopters. Translate the mission to outcomes language for the chasm crossing, then let the pragmatists tell the story to the late majority for you.</p></div>
+      <div class="acc-body"><p>The pragmatist majority buys on proven outcomes, not threat narratives. Lead with results for the pragmatist; the ideological threat frame is for innovators and early adopters. Translate the mission to outcomes language for the chasm crossing.</p></div>
     </details>
 
     <h3 class="card-title" style="font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;margin-top:2rem">PHASE 3 — LEGACY</h3>
     <details class="acc">
       <summary class="acc-head"><span class="acc-phase">Phase 3</span><span class="acc-q">What is ATOM's right relationship to its own obsolescence?</span><span class="acc-arrow">▶</span></summary>
-      <div class="acc-body"><p>A mission-aligned organization must be willing to become unnecessary. If ATOM succeeds — if food systems are genuinely sovereign, distributed, and cartel-resistant — then ATOM's intelligence layer becomes less critical over time as local capacity grows. The philosophical test of Phase 3: are we building toward our own obsolescence or toward permanent institutional relevance? The answer determines whether we are a mission organization or a power organization. The Manhattan Project scientists did not try to become permanent nuclear overlords. They built the weapon, transferred the knowledge, and the mission evolved. ATOM's legacy should be the ecosystem itself — not ATOM as the permanent bottleneck.</p></div>
+      <div class="acc-body"><p>A mission-aligned organization must be willing to become unnecessary. If ATOM succeeds, ATOM's intelligence layer becomes less critical over time as local capacity grows. Are we building toward our own obsolescence or toward permanent institutional relevance? ATOM's legacy should be the ecosystem itself — not ATOM as the permanent bottleneck.</p></div>
     </details>
     <details class="acc">
       <summary class="acc-head"><span class="acc-phase">Phase 3</span><span class="acc-q">If 282 million people are food insecure today, at what point do we have a moral obligation to deploy imperfect solutions?</span><span class="acc-arrow">▶</span></summary>
-      <div class="acc-body"><p>The deployment urgency calculus: the harm of a flawed solution deployed versus the harm of a perfect solution delayed. If ATOM at 70% readiness could materially improve food security intelligence for 50 million smallholders, and the alternative is another 18 months of refinement with no deployment, the philosophical argument for deployment is overwhelming. Perfect is the enemy of good is not a cliché in this context — it is a moral statement. Build in post-deployment feedback loops, maintain humility about limitations, commit to rapid iteration. But deploy. The people who are starving while we optimize cannot wait for our confidence interval.</p></div>
+      <div class="acc-body"><p>The deployment urgency calculus: the harm of a flawed solution deployed versus the harm of a perfect solution delayed. If ATOM at 70% readiness could materially improve food security intelligence for 50 million smallholders, the philosophical argument for deployment is overwhelming. Deploy. The people who are starving while we optimize cannot wait for our confidence interval.</p></div>
     </details>
     <details class="acc">
       <summary class="acc-head"><span class="acc-phase">Phase 3</span><span class="acc-q">How do we maintain mission integrity after the crisis is no longer acute?</span><span class="acc-arrow">▶</span></summary>
-      <div class="acc-body"><p>Crisis-born organizations face a specific failure mode: the mission requires the crisis to maintain urgency, funding, and relevance. When the acute phase passes, the organization either manufactures urgency (becoming alarmist), pivots to commercialization (losing mission alignment), or dissolves. The philosophical preparation for Phase 3: build the long-term mission frame now, before it's needed. Food sovereignty is a 100-year project. ATOM's Phase 3 identity should be: the intelligence infrastructure for permanent food system resilience, not the emergency response to the 2025–2030 crisis. Design the transition language now so it does not feel like mission drift later.</p></div>
+      <div class="acc-body"><p>Crisis-born organizations face a specific failure mode: the mission requires the crisis to maintain urgency. Build the long-term mission frame now. Food sovereignty is a 100-year project. ATOM's Phase 3 identity: the intelligence infrastructure for permanent food system resilience, not the emergency response to the 2025–2030 crisis.</p></div>
     </details>
   </div>
 </div>
 </section>
 
-<!-- ══════════════════════ SECTION 5 — BASE INTEL ════════════════════ -->
+<!-- SECTION 5 — BASE INTEL -->
 <section class="sec" id="base">
 <div class="sec-inner">
   <div class="sec-eyebrow"><span class="sec-num">05</span><span class="sec-label">Base Intelligence Briefing</span></div>
   <h2 class="sec-title">State Actors, Food Weaponization &amp; The FARMPEC Cartel Model</h2>
-  <p class="sec-sub">Four state actors — China, Russia, Brazil, and India — control an estimated 68% of global fertilizer production, 55% of key grain exports, and are actively acquiring agricultural infrastructure in strategic nations. The probability of formal cartel formation by 2030 is modeled at 68%. This is not speculation — it is supply chain cartography.</p>
+  <p class="sec-sub">Four state actors — China, Russia, Brazil, and India — control an estimated 68% of global fertilizer production, 55% of key grain exports, and are actively acquiring agricultural infrastructure in strategic nations. The probability of formal cartel formation by 2030 is modeled at 68%.</p>
 
   <div class="stat-grid">
     <div class="stat"><div class="stat-val red">68%</div><div class="stat-desc">Probability of FARMPEC cartel formation by 2030 (4-state actor convergence model)</div></div>
@@ -747,17 +724,17 @@ footer{padding:3rem 1.5rem 4rem;border-top:1px solid rgba(45,212,212,.07)}
   <div class="grid2 mt4">
     <div class="card">
       <div class="card-title">Food as a Weapon — Historical Precedents</div>
-      <div class="card-body">The Soviet Union's 1932–33 Holodomor. The 1973 OPEC oil embargo's food price cascade. Russia's 2022 Black Sea grain corridor blockade affecting 400M+ people. China's 2020–2021 Australian barley and wine import bans as geopolitical retaliation. The pattern is consistent: commodity control is the cleanest, most deniable form of geopolitical leverage. Food weaponization leaves no missiles, no soldiers, and no smoking gun — only price spikes and starving populations attributed to "market conditions."</div>
+      <div class="card-body">The Soviet Union's 1932–33 Holodomor. The 1973 OPEC oil embargo's food price cascade. Russia's 2022 Black Sea grain corridor blockade affecting 400M+ people. China's 2020–2021 Australian barley and wine import bans as geopolitical retaliation. The pattern is consistent: commodity control is the cleanest, most deniable form of geopolitical leverage.</div>
     </div>
     <div class="card">
       <div class="card-title">The Soil Degradation Acceleration Factor</div>
-      <div class="card-body">60% of the world's agricultural topsoil has been degraded in the last 60 years. At current rates, productive topsoil will reach critical threshold by 2050. This is not a distant crisis — it is a 25-year countdown running simultaneously with the geopolitical food war. State actors accelerating industrial agriculture in adversary nations as a long-game soil destruction strategy is documented. ATOM must address both the immediate geopolitical threat and the structural soil sovereignty crisis.</div>
+      <div class="card-body">60% of the world's agricultural topsoil has been degraded in the last 60 years. At current rates, productive topsoil will reach critical threshold by 2050. This is not a distant crisis — it is a 25-year countdown running simultaneously with the geopolitical food war. ATOM must address both the immediate geopolitical threat and the structural soil sovereignty crisis.</div>
     </div>
   </div>
 </div>
 </section>
 
-<!-- ══════════════════════ SECTION 6 — OPPORTUNITY MATRIX ════════════════════ -->
+<!-- SECTION 6 — OPPORTUNITY MATRIX -->
 <section class="sec" id="matrix">
 <div class="sec-inner">
   <div class="sec-eyebrow"><span class="sec-num">06</span><span class="sec-label">Strategic Opportunity Matrix</span></div>
@@ -768,32 +745,32 @@ footer{padding:3rem 1.5rem 4rem;border-top:1px solid rgba(45,212,212,.07)}
     <div class="card">
       <span class="pill pill-red" style="margin-bottom:.75rem;display:inline-flex">GAP: CRITICAL</span>
       <div class="card-title">Geopolitical-Agronomic Intelligence Fusion</div>
-      <div class="card-body">No current system connects geopolitical threat signals (sanctions, military movements, trade policy shifts) to agronomic decision-making in real time. This is ATOM's primary gap to fill and hardest moat to replicate.</div>
+      <div class="card-body">No current system connects geopolitical threat signals to agronomic decision-making in real time. This is ATOM's primary gap to fill and hardest moat to replicate.</div>
     </div>
     <div class="card">
       <span class="pill pill-red" style="margin-bottom:.75rem;display:inline-flex">GAP: CRITICAL</span>
       <div class="card-title">Quantum-Resistant Data Infrastructure</div>
-      <div class="card-body">All major AgriAI systems use classical encryption. Nation-state adversaries with quantum computing capability can decrypt these systems within years. Post-quantum cryptography is absent from every major commercial AgriAI platform as of 2026.</div>
+      <div class="card-body">All major AgriAI systems use classical encryption. Post-quantum cryptography is absent from every major commercial AgriAI platform as of 2026.</div>
     </div>
     <div class="card">
       <span class="pill pill-warn" style="margin-bottom:.75rem;display:inline-flex">GAP: HIGH</span>
       <div class="card-title">Soil Carbon Measurement + Verification</div>
-      <div class="card-body">$50B+ in voluntary carbon markets depend on soil carbon measurements that are currently unverifiable at scale. Satellite + AI measurement with blockchain verification is technically possible but not deployed. This is both a climate crisis gap and a food sovereignty tool.</div>
+      <div class="card-body">$50B+ in voluntary carbon markets depend on soil carbon measurements that are currently unverifiable at scale. Satellite + AI measurement with blockchain verification is technically possible but not deployed.</div>
     </div>
     <div class="card">
       <span class="pill pill-warn" style="margin-bottom:.75rem;display:inline-flex">GAP: HIGH</span>
       <div class="card-title">Supply Chain Transparency for Smallholders</div>
-      <div class="card-body">2 billion smallholder farmers have zero supply chain visibility, making them maximally vulnerable to price manipulation and input supply disruption. Blockchain-verified transparent pricing and input sourcing could structurally eliminate the information asymmetry that state actors exploit.</div>
+      <div class="card-body">2 billion smallholder farmers have zero supply chain visibility, making them maximally vulnerable to price manipulation and input supply disruption.</div>
     </div>
     <div class="card">
       <span class="pill pill-ok" style="margin-bottom:.75rem;display:inline-flex">GAP: MEDIUM</span>
       <div class="card-title">Cross-System AI Orchestration</div>
-      <div class="card-body">Hundreds of AgriAI systems operate in silos. MCP-based orchestration that allows systems to share context and coordinate decisions without sharing proprietary models is technically straightforward and strategically high-leverage.</div>
+      <div class="card-body">Hundreds of AgriAI systems operate in silos. MCP-based orchestration is technically straightforward and strategically high-leverage.</div>
     </div>
     <div class="card">
       <span class="pill pill-ok" style="margin-bottom:.75rem;display:inline-flex">GAP: MEDIUM</span>
       <div class="card-title">Regenerative Agriculture ROI Quantification</div>
-      <div class="card-body">The adoption barrier for regenerative agriculture is not belief — it's the inability to quantify ROI transition periods. AI that models 3–7 year soil restoration timelines against market and carbon credit projections would accelerate adoption by eliminating financial uncertainty as the primary barrier.</div>
+      <div class="card-body">The adoption barrier for regenerative agriculture is not belief — it's the inability to quantify ROI transition periods. AI that models 3–7 year soil restoration timelines would accelerate adoption.</div>
     </div>
   </div>
 
@@ -816,12 +793,13 @@ footer{padding:3rem 1.5rem 4rem;border-top:1px solid rgba(45,212,212,.07)}
       </div>
       <div>
         <div style="font-family:var(--fm);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);margin-bottom:.5rem">YEAR 5 — 2030</div>
-        <div style="font-size:.85rem;color:var(--txm);line-height:1.65">Fortress mode. FARMPEC cartel probability suppressed below 30%. ATOM is the default operating system for global agricultural intelligence. Mission transitions from crisis to permanent resilience infrastructure.</div>
+        <div style="font-size:.85rem;color:var(--txm);line-height:1.65">Fortress mode. FARMPEC cartel probability suppressed below 30%. ATOM is the default operating system for global agricultural intelligence.</div>
       </div>
     </div>
   </div>
 </div>
 </section>
+
 </main>
 
 <footer>
@@ -839,61 +817,65 @@ footer{padding:3rem 1.5rem 4rem;border-top:1px solid rgba(45,212,212,.07)}
 
 <script>
 // Progress bar
-window.addEventListener('scroll',function(){
-  var d=document.documentElement;
-  var s=d.scrollTop||document.body.scrollTop;
-  var h=d.scrollHeight-d.clientHeight;
-  document.getElementById('pf').style.width=(s/h*100)+'%';
+window.addEventListener('scroll', function() {
+  var d = document.documentElement;
+  var s = d.scrollTop || document.body.scrollTop;
+  var h = d.scrollHeight - d.clientHeight;
+  var pf = document.getElementById('pf');
+  if (pf && h > 0) pf.style.width = (s / h * 100) + '%';
 });
 
 // Active nav on scroll
-(function(){
-  var secs=['societal','ecosystem','atom-sec','phil','base','matrix'];
-  var nvs=document.querySelectorAll('.nv');
-  var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        var id=e.target.id;
-        nvs.forEach(function(n,i){n.classList.remove('act')});
-        var map={'societal':0,'ecosystem':1,'atom-sec':2,'phil':3,'base':4,'matrix':5};
-        if(map[id]!==undefined)nvs[map[id]].classList.add('act');
+(function() {
+  var secs = ['societal','ecosystem','atom-sec','phil','base','matrix'];
+  var nvs = document.querySelectorAll('.nv');
+  var map = {societal:0, ecosystem:1, 'atom-sec':2, phil:3, base:4, matrix:5};
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        var id = e.target.id;
+        nvs.forEach(function(n) { n.classList.remove('act'); });
+        if (map[id] !== undefined) nvs[map[id]].classList.add('act');
       }
     });
-  },{threshold:0.3,rootMargin:'-50px 0px -50% 0px'});
-  secs.forEach(function(id){var s=document.getElementById(id);if(s)obs.observe(s);});
+  }, {threshold: 0.3, rootMargin: '-50px 0px -50% 0px'});
+  secs.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) obs.observe(el);
+  });
 })();
 
-// Scroll to section
-function scrollTo(id){
-  var el=document.getElementById(id);
-  if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+// Renamed to avoid shadowing native window.scrollTo
+function scrollToSection(id) {
+  var el = document.getElementById(id);
+  if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
 }
 
 // Animate awareness bars on scroll
-(function(){
-  var fills=document.querySelectorAll('.aware-fill');
-  if(!fills.length)return;
-  var done=false;
-  var obs2=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting&&!done){
-        done=true;
-        fills.forEach(function(f){
-          f.style.width=(f.dataset.w||'0')+'%';
+(function() {
+  var fills = document.querySelectorAll('.aware-fill');
+  if (!fills.length) return;
+  var done = false;
+  var obs2 = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting && !done) {
+        done = true;
+        fills.forEach(function(f) {
+          f.style.width = (f.dataset.w || '0') + '%';
         });
       }
     });
-  },{threshold:0.3});
-  var aw=document.getElementById('aware-section');
-  if(aw)obs2.observe(aw);
+  }, {threshold: 0.3});
+  var aw = document.getElementById('aware-section');
+  if (aw) obs2.observe(aw);
 })();
 
-// Accordion — enforce only one open at a time per phase group
-document.querySelectorAll('.acc').forEach(function(d){
-  d.addEventListener('toggle',function(){
-    if(d.open){
-      document.querySelectorAll('.acc[open]').forEach(function(o){
-        if(o!==d)o.removeAttribute('open');
+// Accordion — one open at a time
+document.querySelectorAll('details.acc').forEach(function(d) {
+  d.addEventListener('toggle', function() {
+    if (d.open) {
+      document.querySelectorAll('details.acc[open]').forEach(function(o) {
+        if (o !== d) o.open = false;
       });
     }
   });
